@@ -1,0 +1,63 @@
+﻿@{var active = ViewContext.Controller.ViewBag.Menu;}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daivata Online</title>
+    <link href="//netdna.bootstrapcdn.com/bootswatch/3.1.0/flatly/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/daivata.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div id="colordiv">
+        <header class="navbar navbar-inverse bs-docs-nav headernavbar" role="banner">
+            <div class="container headertoolbar">
+                <a href="#" class="navbar-brand scroll-link">
+                    <img src="~/Content/Img/logo%20daivata.png" />
+                </a>
+                <nav class="collapse navbar-collapse bs-navbar-collapse pull-right" role="navigation">
+                    <ul class="nav navbar-nav">
+                        <li><a href="~/Home/MyView" data-id="signup">Home</a></li>
+                        <li><a href="~/Listings/Devalayas" data-id="signup">Devalayas</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">Contests</a></li>
+                        <li><a href="#">Blogs</a></li>
+                        <li><a href="#">Music/Arts</a></li>
+                        <li><a href="#">Gallery</a></li>
+                        <li><a href="~/Security/Login/" class="scroll-link" data-id="location">Signin</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    </div>
+
+
+    @RenderBody()
+    @Html.Partial("Script")
+    @RenderSection("Script", false)
+
+    <div id="footer" style="margin-top:50px; padding-top:20px; padding-bottom:30px;">
+        <div class="container footer">
+            <br />
+            <br />
+            <br />
+
+            <div class="col-md-3">
+                <p><a href="~/Home" title="Home" class="footer">Home</a></p>
+                <p><a href="/contact" title="Contact Us" class="footer">Contact Us</a></p>
+                <p><a href="/license" title="About Us" class="footer">About Us</a></p>
+            </div>
+            <div class="col-md-3">
+                <p><a href="www.facebook.com" title="Facebook"><span class="avatar"><i class="fa fa-facebook footer" ></i></span></a>&nbsp;
+                <a href="www.twitter.com" title="Twitter"><span class="avatar"><i class="fa fa-twitter footer"></i></span></a></p>
+            </div>
+            <div class="col-md-6">
+                <span class="pull-right">Copyright &copy; 2014 Daivata.in</span>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
