@@ -108,6 +108,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ContestsController.cs" />
     <Compile Include="Controllers\DetailsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ListingsController.cs" />
@@ -136,6 +137,7 @@
     <Content Include="Content\Img\img2.jpg" />
     <Content Include="Content\Img\img3.jpg" />
     <Content Include="Content\Img\img4.jpg" />
+    <Content Include="Content\Img\img5.jpg" />
     <Content Include="Content\Img\logo daivata.png" />
     <Content Include="Content\daivata.css" />
     <Content Include="Content\Img\slide1.jpg" />
@@ -174,6 +176,9 @@
     <Content Include="Views\Details\Devalaya.cshtml" />
     <Content Include="Views\Home\MyView.cshtml" />
     <Content Include="Views\Home\MyActiveView.cshtml" />
+    <Content Include="Views\Listings\Events.cshtml" />
+    <Content Include="Views\Details\Event.cshtml" />
+    <Content Include="Views\Contests\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

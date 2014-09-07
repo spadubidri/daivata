@@ -26,3 +26,31 @@ c:\users\subramanya_p1\documents\visual studio 2013\Projects\Daivata\Daivata\bin
 c:\users\subramanya_p1\documents\visual studio 2013\Projects\Daivata\Daivata\obj\Debug\Daivata.dll
 c:\users\subramanya_p1\documents\visual studio 2013\Projects\Daivata\Daivata\obj\Debug\Daivata.pdb
 c:\users\subramanya_p1\documents\visual studio 2013\Projects\Daivata\Daivata\obj\Debug\Daivata.UI.csprojResolveAssemblyReference.cache
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\Daivata.dll.config
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\Daivata.dll
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\Daivata.pdb
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\Newtonsoft.Json.dll
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\System.Net.Http.Formatting.dll
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\System.Web.Helpers.dll
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\System.Web.Http.dll
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\System.Web.Http.WebHost.dll
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\System.Web.Mvc.dll
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\System.Web.Razor.dll
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\System.Web.WebPages.Deployment.dll
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\System.Web.WebPages.dll
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\System.Web.WebPages.Razor.dll
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\Newtonsoft.Json.xml
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\System.Net.Http.Formatting.xml
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\System.Web.Helpers.xml
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\System.Web.Http.xml
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\System.Web.Http.WebHost.xml
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\System.Web.Mvc.xml
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\System.Web.Razor.xml
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\System.Web.WebPages.xml
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\System.Web.WebPages.Deployment.xml
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\System.Web.WebPages.Razor.xml
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\obj\Debug\Daivata.UI.csprojResolveAssemblyReference.cache
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\obj\Debug\Daivata.dll
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\obj\Debug\Daivata.pdb

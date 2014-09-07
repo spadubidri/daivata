@@ -22,5 +22,9 @@ namespace Daivata.Controllers
             return View();
         }
 
+        public ActionResult Event(string devalayaId)
+        {
+            return View();
+        }
     }
 }

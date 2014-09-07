@@ -6,23 +6,15 @@ using System.Web.Mvc;
 
 namespace Daivata.Controllers
 {
-    public class ListingsController : Controller
+    public class ContestsController : Controller
     {
         //
-        // GET: /Listings/
+        // GET: /Contests/
 
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult Devalayas()
-        {
-            return View();
-        }
-        public ActionResult Events()
-        {
-            return View();
-        }
     }
 }
