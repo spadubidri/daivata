@@ -117,10 +117,12 @@ namespace Daivata.UI
             }
             catch (Exception ex)
             {
-
-                // azure has a problem so just update the file ae for now
-                string thumnail = "/Img/" + httpPostedFile.FileName;
-
+                string thumnail = "/img/NoImage.jpg";
+                // azure has a problem so just update the file ae for now, hack to keep it just for me 
+                if (httpPostedFile.FileName.Contains("update"))
+                {
+                    thumnail = "/Img/" + httpPostedFile.FileName.Replace("update","");
+                }
                 DevalayaListingRepository repository = new DevalayaListingRepository();
                 repository.UpdateThumbnail(id, thumnail);
 

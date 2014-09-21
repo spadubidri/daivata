@@ -33,11 +33,13 @@ namespace Daivata.UI
             return null;
         }
 
-        public ActionResult TwitterCallback()
+        public ActionResult TwitterCallback(string oauth_token, string oauth_verifier)
         {
 
             TwitterIntegration helper = new TwitterIntegration();
-            string signinurl = helper.GetUserData();
+            string loggedinUser = helper.GetUserData(oauth_token, oauth_verifier);
+            SocialSignin.SigninWithSocial(loggedinUser);
+            Response.Redirect("~/Home/MyView");
             return null;
 
         }
@@ -94,12 +96,14 @@ namespace Daivata.UI
                 string email = me.email;
                 var friends = me.friends;
 
-                HttpCookie authcookie = new HttpCookie(ConfigurationManager.AppSettings["authcookie"]);
-                authcookie.Value = "name=" + me.name;
+                SocialSignin.SigninWithSocial(me.name);
 
-                Response.Cookies.Add(authcookie);
+                //HttpCookie authcookie = new HttpCookie(ConfigurationManager.AppSettings["authcookie"]);
+                //authcookie.Value = "name=" + me.name;
 
-                Response.Redirect("/Home/MyView");
+                //Response.Cookies.Add(authcookie);
+
+                Response.Redirect("~/Home/MyView");
               }
             return null;
         }
@@ -112,7 +116,7 @@ namespace Daivata.UI
                 authcookie.Expires = DateTime.Now.AddDays(-30);
                 Response.Cookies.Add(authcookie);
             }
-            Response.Redirect("/");
+            Response.Redirect("~/");
 
             return null;
         }

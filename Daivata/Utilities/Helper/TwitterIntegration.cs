@@ -33,39 +33,32 @@ namespace Daivata.UI
         public string SigninUrl()
         {
 
-            TwitterClientInfo twitterClientInfo = new TwitterClientInfo();
-            twitterClientInfo.ConsumerKey = ConsumerKey; //Read ConsumerKey out of the app.config
-            twitterClientInfo.ConsumerSecret = ConsumerSecret; //Read the ConsumerSecret out the app.config
+            TwitterService service = new TwitterService(ConsumerKey, ConsumerSecret);
 
-            TwitterService twitterService = new TwitterService(twitterClientInfo);
+            // This is the registered callback URL
+            OAuthRequestToken requestToken = service.GetRequestToken(ConfigurationManager.AppSettings["TwitterReturnUrl"]);
 
-            //if (string.IsNullOrEmpty(AccessToken) || string.IsNullOrEmpty(AccessTokenSecret))
-            //{
-                //Now we need the Token and TokenSecret
+            // Step 2 - Redirect to the OAuth Authorization URL
+            Uri uri = service.GetAuthorizationUri(requestToken);
 
-                //Firstly we need the RequestToken and the AuthorisationUrl
-                OAuthRequestToken requestToken = twitterService.GetRequestToken();
-                string authUrl = twitterService.GetAuthorizationUri(requestToken).ToString();
-                return authUrl;
-            //}
-            //return "";
+            return uri.ToString();
+
         }
 
-        public string GetUserData()
+        public string GetUserData(string oauthtoken, string oauthverifier)
         {
 
-            TwitterClientInfo twitterClientInfo = new TwitterClientInfo();
-            twitterClientInfo.ConsumerKey = ConsumerKey; //Read ConsumerKey out of the app.config
-            twitterClientInfo.ConsumerSecret = ConsumerSecret; //Read the ConsumerSecret out the app.config
+            var requestToken = new OAuthRequestToken { Token = oauthtoken };
 
-            //TwitterService twitterService = new TwitterService(twitterClientInfo);
+            // Step 3 - Exchange the Request Token for an Access Token
+            TwitterService service = new TwitterService(ConsumerKey, ConsumerSecret);
+            OAuthAccessToken accessToken = service.GetAccessToken(requestToken, oauthverifier);
 
-            //OAuthAccessToken accessToken = twitterService.GetAccessToken(requestToken, pin);
-
-            //string token = accessToken.Token; //Attach the Debugger and put a break point here
-            //string tokenSecret = accessToken.TokenSecret; //And another Breakpoint here
-
-            return "";
+            // Step 4 - User authenticates using the Access Token
+            service.AuthenticateWith(accessToken.Token, accessToken.TokenSecret);
+            
+            TwitterUser user = service.VerifyCredentials(new VerifyCredentialsOptions());
+            return user.Name;
         }
     }
 }

@@ -132,6 +132,7 @@
     <Compile Include="Utilities\DaivataIdentity.cs" />
     <Compile Include="Utilities\Helper\TwitterIntegration.cs" />
     <Compile Include="Utilities\JsonHelper.cs" />
+    <Compile Include="Utilities\SocialSignin.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
