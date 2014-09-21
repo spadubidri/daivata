@@ -1,0 +1,5 @@
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata.DB\bin\Debug\Daivata.DB.dll
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata.DB\bin\Debug\Daivata.DB.pdb
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata.DB\obj\Debug\Daivata.DB.dll
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata.DB\obj\Debug\Daivata.DB.pdb
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata.DB\obj\Debug\Daivata.Database.csprojResolveAssemblyReference.cache

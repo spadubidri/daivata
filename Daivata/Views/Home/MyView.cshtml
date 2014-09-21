@@ -3,20 +3,24 @@
 }
 
 <br /><br />
-<h3>Welcome <a href="~/Home/MyActiveView/">Subramanya P</a></h3>
-
+@if (HttpContext.Current.User.Identity.IsAuthenticated)
+{ 
+<h3>Welcome <a href="~/Home/MyActiveView/">
+    @HttpContext.Current.User.Identity.Name
+    </a>
+    </h3>
+}
 You are currently not following any event/listings. Explore more on Daivata online.
 
 <br /><br /><br /><br />
-<h3>Brief on what you can do on Daivata online!</h3>
-
-<ul>
-    <li>Great place to exchange your views and knowledge on daivata</li>
-    <li>Get to know many devalayas surrounding you or around the globe</li>
-    <li>Easier way to follow your favourite cultural/festival events</li>
-    <li>Meet devotees around the globe and share experiences</li>
-    <li>Participate on online contests and win prizes!!!</li>
-    <li>Write your blogs on a particular topic and help educating society</li>
-    <li>Enjoy our traditional Music/Art collections</li>
-</ul>
+<h3>Brief on what you can do on Daivatam online!</h3>
+    <ul>
+        <li>Great place to exchange your views and knowledge on daivata</li>
+        <li>Get to know many devalayas surrounding you or around the globe</li>
+        <li>Easier way to follow your favourite cultural/festival events</li>
+        <li>Meet devotees around the globe and share experiences</li>
+        <li>Participate on online contests and win prizes!!!</li>
+        <li>Write your blogs on a particular topic and help educating society</li>
+        <li>Enjoy our traditional Music/Art collections</li>
+    </ul>
 

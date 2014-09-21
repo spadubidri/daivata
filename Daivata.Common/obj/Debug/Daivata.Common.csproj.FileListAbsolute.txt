@@ -1,0 +1,5 @@
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata.Common\bin\Debug\Daivata.Common.dll
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata.Common\bin\Debug\Daivata.Common.pdb
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata.Common\obj\Debug\Daivata.Common.csprojResolveAssemblyReference.cache
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata.Common\obj\Debug\Daivata.Common.dll
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata.Common\obj\Debug\Daivata.Common.pdb

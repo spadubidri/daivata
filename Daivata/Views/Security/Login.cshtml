@@ -2,79 +2,98 @@
     ViewBag.Title = "Login";
 }
 
+<br /><br /><br /><br /><br /><br /><br /><br />
+
 <div class="container">
-    <div id="signup" class="page-section">
-        <div class="row">
-            <div class="col-lg-8 text-left v-center">
-                <div class="col-md-8">
-                    <h3 class="customheader">Sign Up</h3>
-                    <form class="col-lg-11">
-                        <div class="well well-sm"><strong><span class="glyphicon glyphicon-asterisk"></span>Required Field</strong></div>
-                        <div class="form-group">
-                            <label for="InputName">Enter Name</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" name="InputName" id="InputName" placeholder="Enter Name" required>
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
-                            </div>
-
-                        </div>
-                        <div class="form-group">
-                            <label for="InputEmail">Enter Email</label>
-                            <div class="input-group">
-                                <input type="email" class="form-control" id="InputEmailFirst" name="InputEmail" placeholder="Enter Email" required>
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="InputEmail">Enter Password</label>
-                            <div class="input-group">
-                                <input type="password" class="form-control" id="InputEmailFirst" name="InputPassword" placeholder="Enter Password" required>
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <span class="input-group-btn">
-                                <button class="btn btn-primary" type="button">Register</button>
-                            </span>
-                        </div>
-                    </form>
-                </div>
-                <div class="col-md-4">
-                    <h3>
-                        <h3 class="customheader">Sign In</h3>
-                        <br />
-
-                        <form class="col-lg-11">
-                            
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <label for="InputEmail">Enter Email Address</label>
-                                    <input type="text" class="form-control" name="InputName" id="InputName" placeholder="Email Address" required>
-                                </div>
-                                
-                                <div class="input-group">
-                                    <label for="InputEmail">Enter Password</label>
-                                    <input type="password" class="form-control" name="InputName" id="InputName" placeholder="Password" required>
-                                </div>
-
-                            </div>
-                            <div>
-                                <span class="input-group-btn">
-                                    <button class="btn btn-primary" type="button">Login</button>
-                                </span>
-                            </div>
-                            </form> 
-                            
-                    <div class="row">
-                        <h3>Or.. Login with</h3>
-                        <div class="col-lg-6 text-center v-center" style="font-size: 39pt;">
-                            <a href="#"><span class="avatar"><i class="fa fa-google-plus"></i></span></a>
-                            <a href="#"><span class="avatar"><i class="fa fa-facebook"></i></span></a>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-            
+    <div class="row">
+        <div class="col-lg-8 text-left v-center">
+            <ul>
+                <li style="font-size: 30pt;text-align:center; color:white">
+                    <a href="#" style="padding:40px;"><img src="~/Content/Img/logoshortlogin.png" /></a>
+                    <a href="#" style="padding:40px;"><span class="navbaravatar"><i class="fa fa-google-plus"></i></span></a>
+                    <a href="@Url.Action("FbLogin", "Security")" style="padding:40px;"><span class="navbaravatar"><i class="fa fa-facebook"></i></span></a>
+                    <a href="#" style="padding:40px;"><span class="navbaravatar"><i class="fa fa-twitter"></i></span></a>
+                </li>
+            </ul>
             </div>
-</div>
+        </div>
+    </div>
+            @*<div class="container">
+
+                @*<div class="container">
+                    <div id="signup" class="page-section">
+                        <div class="row">
+                            <div class="col-lg-8 text-left v-center">
+                                <div class="col-md-8">
+                                    <h3 class="customheader">Sign Up</h3>
+                                    <form class="col-lg-11">
+                                        <div class="well well-sm"><strong><span class="glyphicon glyphicon-asterisk"></span>Required Field</strong></div>
+                                        <div class="form-group">
+                                            <label for="InputName">Enter Name</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" name="InputName" id="InputName" placeholder="Enter Name" required>
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="InputEmail">Enter Email</label>
+                                            <div class="input-group">
+                                                <input type="email" class="form-control" id="InputEmailFirst" name="InputEmail" placeholder="Enter Email" required>
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="InputEmail">Enter Password</label>
+                                            <div class="input-group">
+                                                <input type="password" class="form-control" id="InputEmailFirst" name="InputPassword" placeholder="Enter Password" required>
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-primary" type="button">Register</button>
+                                            </span>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-4">
+                                    <h3>
+                                        <h3 class="customheader">Sign In</h3>
+                                        <br />
+
+                                        <form class="col-lg-11">
+
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <label for="InputEmail">Enter Email Address</label>
+                                                    <input type="text" class="form-control" name="InputName" id="InputName" placeholder="Email Address" required>
+                                                </div>
+
+                                                <div class="input-group">
+                                                    <label for="InputEmail">Enter Password</label>
+                                                    <input type="password" class="form-control" name="InputName" id="InputName" placeholder="Password" required>
+                                                </div>
+
+                                            </div>
+                                            <div>
+                                                <span class="input-group-btn">
+                                                    <button class="btn btn-primary" type="button">Login</button>
+                                                </span>
+                                            </div>
+                                            </form>
+
+                                    <div class="row">
+                                        <h3>Or.. Login with</h3>
+                                        <div class="col-lg-6 text-center v-center" style="font-size: 39pt;">
+                                            <a href="#"><span class="avatar"><i class="fa fa-google-plus"></i></span></a>
+                                            <a href="#"><span class="avatar"><i class="fa fa-facebook"></i></span></a>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+
+                            </div>
+                </div>
+                </div>*@

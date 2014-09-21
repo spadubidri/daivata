@@ -1,0 +1,258 @@
+﻿@{
+    ViewBag.Title = "CreateNewDevalaya";
+}
+
+<br /><br />
+<br />
+<h3></h3>
+
+<form id="frmCreateNewDevalaya" enctype="multipart/form-data">
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 activeStepInfo highlightarea" id="step1">
+                    <div class="feature-item">
+                        <div class="panel-heading">
+                            <h3> <img src="~/Content/Img/logoshort.png" /> Create New Devalaya on Daivatham.in!</h3>
+                        </div>
+                        <div style="margin: 10px; height:340px; color:white;">
+                            <input type="text" class="form-control" name="title" id="title" placeholder="Devalaya Title*" required style="width:400px;"> <br />
+                            <input type="text" class="form-control" name="shortDescription" id="shortDescription" placeholder="Short Description*" required> <br />
+                            <input type="text" class="form-control" name="location" id="location" placeholder="Location" required style="width:400px;"> <br />
+                            <input type="file" class="form-control"  name="image" id="image" placeholder="Image" required style="width:400px;" onchange="javascript:updateThumnailpreview()"> <br />
+                            <img class="img-circle img-highlight" src="~/Content/img/NoImage.jpg" id="thumbnailpreview"/>
+                        </div>
+                        <div style="text-align:right"><a href="javascript:validatefirststep('step2')">Next > </a></div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12 hiddenStepInfo highlightarea" id="step2">
+                    <div class="feature-item">
+                        <div class="panel-heading">
+                            <h3><img src="~/Content/Img/logoshort.png" /> Details</h3>
+                        </div>
+                        <div style="margin: 10px; height:340px; ">
+                            <textarea class="textarea" name="devalayaDetails" id="devalayaDetails" style="width:80%; height:80%;" placeholder="Devalaya Details"></textarea> <br />
+                        </div>
+                        <div style="text-align:right"><a href="javascript:reset('step3')">Next > </a></div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12 hiddenStepInfo highlightarea" id="step3">
+                    <div class="feature-item">
+                        <div class="panel-heading">
+                            <h3><img src="~/Content/Img/logoshort.png" />Timings</h3>
+                        </div>
+                        <div style="margin: 10px; height:340px;">
+                            <textarea class="textarea" name="timings" id="timings" style="width:80%; height:80%;" placeholder="Devalaya Timings"></textarea> <br />
+                        </div>
+                        <div style="text-align:right"><a href="javascript:reset('step4')">Next ></a></div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12 hiddenStepInfo highlightarea" id="step4">
+                    <div class="feature-item">
+                        <div class="panel-heading">
+                            <h3><img src="~/Content/Img/logoshort.png" />Location</h3>
+                        </div>
+                        <div style="margin: 10px; height:340px; ">
+                            <input type="text" class="form-control" name="maplocation" id="maplocation" placeholder="Location" required style="width:400px;"> <br />
+                        </div>
+                        <div style="text-align:right"><a href="javascript:reset('step5')">Next ></a></div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12 hiddenStepInfo highlightarea" id="step5">
+                    <div class="feature-item">
+                        <div class="panel-heading">
+                            <h3><img src="~/Content/Img/logoshort.png" />Contact</h3>
+                        </div>
+                        <div style="margin: 10px; height:340px; ">
+                            <textarea class="textarea" name="contact" id="contact" style="width:80%; height:80%;" placeholder="Devalaya Timings"></textarea> <br />
+                        </div>
+                        <div style="text-align:right"><a href="javascript:reset('step6')">Next ></a></div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12 hiddenStepInfo highlightarea" id="step6">
+                    <div class="feature-item">
+                        <div class="panel-heading">
+                            <h3><img src="~/Content/Img/logoshort.png" />FAQ</h3>
+                        </div>
+                        <div style="margin: 10px; height:340px;">
+                            <textarea class="textarea" name="faq" id="faq" style="width:80%; height:80%;" placeholder="FAQ"></textarea> <br />
+                        </div>
+                        <div style="text-align:right"><a href="javascript:reset('step7')">Next ></a></div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12 hiddenStepInfo highlightarea" id="step7">
+                    <div class="feature-item">
+                        <div class="panel-heading">
+                            <h3>
+                                <img src="~/Content/Img/logoshort.png" />Travel Directions
+                            </h3>
+                        </div>
+                        <div style="margin: 10px; height:340px;">
+                            <textarea class="traveldirection" name="traveldirection" id="timings" style="width:80%; height:80%;" placeholder="Travel Direction"></textarea> <br />
+                        </div>
+                        <div style="text-align:right">
+                            <div id="pleaseWaitModel" style="display: none; padding-left:10px;">
+                                <img src="~/Content/Img/logoshort.png" alt="" style="vertical-align: middle;" />
+                                <span id="pleaseWaitTextSignIn" style="padding-left: 3px;"></span>
+                            </div>
+
+                        <a href="javascript: saveDevalayaListing('frmCreateNewDevalaya')">Preview ></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<link href="~/Content/wysiwyg-color.css" rel="stylesheet" />
+<link href="~/Content/prettify.css" rel="stylesheet" />
+<script src="~/Scripts/wysihtml5-0.3.0.min.js"></script>
+<script src="~/Scripts/jquery-2.1.1.min.js"></script>
+<script src="~/Scripts/prettify.js"></script>
+<script src="~/Scripts/bootstrap-wysihtml5.js"></script>
+<link href="~/Content/bootstrap-wysihtml5.css" rel="stylesheet" />
+<link href="~/Content/wysiwyg-color.css" rel="stylesheet" />
+
+<script language="javascript">
+
+    function updateThumnailpreview() {
+        debugger;
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("image").files[0]);
+
+        oFReader.onload = function (oFREvent) {
+            document.getElementById("thumbnailpreview").src = oFREvent.target.result;
+        };
+        
+    }
+    
+
+    function validatefirststep(step) {
+        debugger;
+
+        // to do 
+        var validation = true;
+        //if ($(title).text.length == 1) {
+        //    validation = false;
+        //}
+
+        //if ($(shortDescription).text.length == 1) {
+        //    validation = false;
+        //}
+
+        if(validation)
+            reset(step)
+        else 
+            alert("Please fill required fields")
+    }
+
+    function reset(step) {
+        hidecreateSteps();
+        showCurrentStepInfo(step)
+    }
+
+    function showCurrentStepInfo(step) {
+        var id = "#" + step;
+        $(id).addClass("activeStepInfo");
+    }
+
+    function hidecreateSteps() {
+        $("div").each(function () {
+            if ($(this).hasClass("activeStepInfo")) {
+                $(this).removeClass("activeStepInfo");
+                $(this).addClass("hiddenStepInfo");
+            }
+        });
+    }
+    
+    function saveDevalayaListing(formID) {
+        setPleaseWaitModalText("Please wait while we save Devalaya details...", 'Save')
+        debugger;
+        var submiturl = "@Url.Action("SaveNewDevalaya", "Listings")";
+        var formData;
+        var formData = getFormData(formID);
+        
+        var _oData = {
+            type: "POST",
+            url: submiturl,
+            contentType: false,
+            processData: false,
+            data: formData,
+            datatype: 'json',
+            success: processSuccessfulCreate,
+            error: function () {
+                alert('error');
+            },
+            complete: null,
+            dataType: "html"
+        };
+        submitAjax(_oData);
+
+    }
+
+    function processSuccessfulCreate(data) {
+        debugger;
+
+        setPleaseWaitModalText("Uploading thumnail ...", 'Save')
+
+        var submiturl = "@Url.Action("UploadThumbnail", "Listings")/" + data.Messages;
+
+        var data = new FormData();
+
+        var files = $("#image").get(0).files;
+
+        // Add the uploaded image content to the form data collection
+        if (files.length > 0) {
+            data.append("uploadedimage", files[0]);
+        }
+
+        $.ajax({
+            type: "POST",
+            url: submiturl,
+            data: data,
+            dataType: 'json',
+            contentType: false,
+            processData: false,
+            success: creationComplete,
+            error: function (error) {
+                alert("errror");
+            }
+        });
+
+    }
+
+    function creationComplete(data)
+    {
+        debugger;
+        clearPleaseWaitModalText("Save")
+        if (typeof (data) != "undefined") {
+            if (data.Status) {
+                var listingUrl = "@Url.Action("Devalaya", "Details")/" + data.Messages;
+                window.location = listingUrl;
+            }
+        }
+    }
+
+    
+    function setPleaseWaitModalText(data, id) {
+        $("#pleaseWaitModel").text(data);
+        $("#pleaseWaitModel").addClass("activeStepInfo");
+
+    }
+
+
+    function clearPleaseWaitModalText(id) {
+        $("#pleaseWaitModel").text("");
+        $("#pleaseWaitModel").addClass("hideStepInfo");
+    }
+
+
+</script>
+
+<script>
+    $('.textarea').wysihtml5();
+</script>
+
+<script type="text/javascript" charset="utf-8">
+    $(prettyPrint);
+</script>

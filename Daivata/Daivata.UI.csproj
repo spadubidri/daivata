@@ -39,10 +39,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Facebook">
+      <HintPath>..\packages\Facebook.6.8.0\lib\net45\Facebook.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -108,6 +112,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\Authorize.cs" />
     <Compile Include="Controllers\ContestsController.cs" />
     <Compile Include="Controllers\DetailsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -117,17 +122,38 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\AuthenticationModule.cs" />
+    <Compile Include="Utilities\DaivataIdentity.cs" />
+    <Compile Include="Utilities\JsonHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Content\animate.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap-wysihtml5.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\Img\glyphicons-halflings-white.png" />
+    <Content Include="Content\Img\glyphicons-halflings.png" />
+    <Content Include="Content\Img\img10.jpg" />
+    <Content Include="Content\Img\img11.jpg" />
+    <Content Include="Content\Img\img12.jpg" />
+    <Content Include="Content\Img\img13.jpg" />
+    <Content Include="Content\Img\img6.jpg" />
+    <Content Include="Content\Img\img7.jpg" />
+    <Content Include="Content\Img\img8.jpg" />
+    <Content Include="Content\Img\logonew.png" />
+    <Content Include="Content\Img\logoshort.png" />
+    <Content Include="Content\Img\logoshortlogin.png" />
+    <Content Include="Content\Img\NoImage.jpg" />
+    <Content Include="Content\Img\photogal.png" />
+    <Content Include="Content\Img\slide4.jpg" />
+    <Content Include="Content\Img\background.jpg" />
     <Content Include="Content\Img\bg.JPG" />
     <Content Include="Content\Img\gal1.jpg" />
     <Content Include="Content\Img\gal2.jpg" />
@@ -139,11 +165,30 @@
     <Content Include="Content\Img\img4.jpg" />
     <Content Include="Content\Img\img5.jpg" />
     <Content Include="Content\Img\logo daivata.png" />
-    <Content Include="Content\daivata.css" />
+    <Content Include="Content\daivata old.css" />
     <Content Include="Content\Img\slide1.jpg" />
     <Content Include="Content\Img\slide2.jpg" />
     <Content Include="Content\Img\slide3.jpg" />
+    <Content Include="Content\Img\slide5.jpg" />
+    <Content Include="Content\Img\wood-back.png" />
     <Content Include="Content\js\common.js" />
+    <Content Include="Content\js\custom.js" />
+    <Content Include="Content\js\gmaps.js" />
+    <Content Include="Content\js\html5shiv.js" />
+    <Content Include="Content\js\jquery.arbitrary-anchor.js" />
+    <Content Include="Content\js\jquery.js" />
+    <Content Include="Content\js\jquery.knob.js" />
+    <Content Include="Content\js\jquery.prettyPhoto.js" />
+    <Content Include="Content\js\jquery.themepunch.plugins.min.js" />
+    <Content Include="Content\js\jquery.themepunch.revolution.min.js" />
+    <Content Include="Content\js\respond.min.js" />
+    <Content Include="Content\js\waypoints.min.js" />
+    <Content Include="Content\prettify.css" />
+    <Content Include="Content\prettyPhoto.css" />
+    <Content Include="Content\rs-settings.css" />
+    <Content Include="Content\Slider\slider.xml" />
+    <Content Include="Content\daivata.css" />
+    <Content Include="Content\wysiwyg-color.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -157,10 +202,13 @@
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="Scripts\bootstrap-wysihtml5.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
+    <Content Include="Scripts\prettify.js" />
+    <Content Include="Scripts\wysihtml5-0.3.0.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -179,9 +227,12 @@
     <Content Include="Views\Listings\Events.cshtml" />
     <Content Include="Views\Details\Event.cshtml" />
     <Content Include="Views\Contests\Index.cshtml" />
+    <Content Include="Views\Listings\CreateNewDevalaya.cshtml" />
+    <Content Include="Views\Listings\Thankyou.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Img\Uploaded\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -195,6 +246,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Daivata.Common\Daivata.Entities.csproj">
+      <Project>{bca44069-7b47-4ab1-8d35-b7a0e29c5718}</Project>
+      <Name>Daivata.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Daivata.DB\Daivata.Database.csproj">
+      <Project>{34f9b90f-c43d-416d-b1db-222b5dd1d506}</Project>
+      <Name>Daivata.Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Daivata.Repository\Daivata.Repository.csproj">
+      <Project>{930a83d1-7e5b-4988-bebd-7263464248a4}</Project>
+      <Name>Daivata.Repository</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

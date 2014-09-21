@@ -4,60 +4,104 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daivata Online</title>
-    <link href="//netdna.bootstrapcdn.com/bootswatch/3.1.0/flatly/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/rs-settings.css" rel="stylesheet" />
+    <link href="~/Content/animate.min.css" rel="stylesheet" />
+    <link href="~/Content/prettyPhoto.css" rel="stylesheet" />
     <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    @*<link href="~/Content/daivata.css" rel="stylesheet" />*@
+
     <link href="~/Content/daivata.css" rel="stylesheet" />
 
+    
 </head>
 <body>
-    <div id="colordiv">
-        <header class="navbar navbar-inverse bs-docs-nav headernavbar" role="banner">
-            <div class="container headertoolbar">
-                <a href="#" class="navbar-brand scroll-link">
-                    <img src="~/Content/Img/logo%20daivata.png" />
-                </a>
-                <nav class="collapse navbar-collapse bs-navbar-collapse pull-right" role="navigation">
-                    <ul class="nav navbar-nav">
-                        <li><a href="~/Home/MyView" data-id="signup">Home</a></li>
-                        <li><a href="~/Listings/Devalayas" data-id="signup">Devalayas</a></li>
-                        <li><a href="~/Listings/Events">Events</a></li>
-                        <li><a href="~/Contests">Contests</a></li>
-                        <li><a href="#">Blogs</a></li>
-                        <li><a href="#">Music/Arts</a></li>
-                        <li><a href="#">Gallery</a></li>
-                        <li><a href="~/Security/Login/" class="scroll-link" data-id="location">Signin</a></li>
-                    </ul>
-                </nav>
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="navbar-scroll"
+         role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+
+            <div class="navbar-header">
+                <button class="navbar-toggle" type="button"
+                        data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                </button> 
+                     <img src="~/Content/Img/logonew.png" />
+					 @*<a class="navbar-brand" href=""><img src="~/Content/Img/logo%20daivata.png" /></a>*@
+            </div><!-- Collect the nav links, forms, and other content for toggling -->
+
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="~/Home/MyView" data-id="signup">Home</a></li>
+                    <li><a href="~/Listings/Devalayas" data-id="signup">Devalayas</a></li>
+                    <li><a href="~/Listings/Events">Events</a></li>
+                    <li><a href="~/Contests">Contests</a></li>
+                    <li><a href="#">Blogs</a></li>
+                    <li><a href="#">Music/Arts</a></li>
+                    <li><a href="#">Gallery</a></li>
+
+                    @if (!HttpContext.Current.User.Identity.IsAuthenticated){
+                    <li class="dropdown"><a href="#" class="scroll-link" data-toggle="dropdown">Signin</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li style="font-size: 30pt;text-align:center">
+                                <a href="#"><img src="~/Content/Img/logoshortlogin.png" /></a>
+                                    <a href="#"><span class="navbaravatar"><i class="fa fa-google-plus"></i></span></a>
+                                <a href="@Url.Action("FbLogin", "Security")"><span class="navbaravatar"><i class="fa fa-facebook"></i></span></a>
+                                <a href="#"><span class="navbaravatar"><i class="fa fa-twitter"></i></span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    }
+                    else
+                    {
+                        <li class="dropdown"><a href="#" class="scroll-link" data-toggle="dropdown">@HttpContext.Current.User.Identity.Name</a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li style="font-size: 10pt;text-align:center;">
+                                    <a href="#" style="color:brown">My Account</a>
+                                    <a href="@Url.Action("SignOut", "Security")" style="color:brown">Signout</a>
+                                </li>
+                            </ul>
+                        </li>
+                    
+                    }
+                </ul>
             </div>
-        </header>
-    </div>
+        </div>
+    </nav>
 
 
     @RenderBody()
     @Html.Partial("Script")
     @RenderSection("Script", false)
 
-    <div id="footer" style="margin-top:50px; padding-top:20px; padding-bottom:30px;">
-        <div class="container footer">
-            <br />
-            <br />
-            <br />
+    <div class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="pnumber">
+                    <a>About Us</a>&nbsp; <a>Feedback</a> &nbsp;
 
-            <div class="col-md-3">
-                <p><a href="~/Home" title="Home" class="footer">Home</a></p>
-                <p><a href="/contact" title="Contact Us" class="footer">Contact Us</a></p>
-                <p><a href="/license" title="About Us" class="footer">About Us</a></p>
-            </div>
-            <div class="col-md-3">
-                <p><a href="www.facebook.com" title="Facebook"><span class="avatar"><i class="fa fa-facebook footer" ></i></span></a>&nbsp;
-                <a href="www.twitter.com" title="Twitter"><span class="avatar"><i class="fa fa-twitter footer"></i></span></a></p>
-            </div>
-            <div class="col-md-6">
-                <span class="pull-right">Copyright &copy; 2014 Daivata.in</span>
+                </div>
+                <div class="social">
+                    <a class="facebook" href="#">
+                        <i class="fa fa-facebook"></i>
+                    </a>						 <a class="twitter" href="#">
+                        <i class="fa fa-twitter"></i>
+                    </a>						 <a class="google-plus" href="#">
+                        <i class="fa fa-google-plus"></i>
+                    </a>						 
+                </div>
+                <div class="content-copy">
+                    <span style="color:darkred">
+                        © Copyright <a href="#">
+                            Daivatam.in
+                            
+                        </a>
+                    </span>
+                </div>
             </div>
         </div>
-
-    </div>
+    </div><!-- End footer -->
 
 </body>
 </html>

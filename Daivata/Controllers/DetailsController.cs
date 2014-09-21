@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Daivata.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Daivata.Entities;
 
-namespace Daivata.Controllers
+namespace Daivata.UI
 {
     public class DetailsController : Controller
     {
@@ -16,10 +18,13 @@ namespace Daivata.Controllers
             return View();
         }
 
-        public ActionResult Devalaya(string devalayaId)
+        [HttpGet]
+        public ActionResult Devalaya(string id)
         {
+            DevalayaListingRepository repository = new DevalayaListingRepository();
+            Devalaya devalayaDetails = repository.Get(Guid.Parse(id));
 
-            return View();
+            return View(devalayaDetails);
         }
 
         public ActionResult Event(string devalayaId)

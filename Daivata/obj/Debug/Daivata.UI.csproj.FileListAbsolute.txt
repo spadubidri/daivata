@@ -54,3 +54,11 @@ C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\System.Web.WebPages.
 C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\obj\Debug\Daivata.UI.csprojResolveAssemblyReference.cache
 C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\obj\Debug\Daivata.dll
 C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\obj\Debug\Daivata.pdb
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\Daivata.Common.dll
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\Daivata.Repository.dll
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\Daivata.Common.pdb
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\Daivata.Repository.pdb
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\Daivata.DB.dll
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\Daivata.DB.pdb
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\Facebook.dll
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\Facebook.xml

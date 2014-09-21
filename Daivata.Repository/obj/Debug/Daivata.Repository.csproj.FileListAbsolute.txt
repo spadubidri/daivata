@@ -1,0 +1,9 @@
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata.Repository\bin\Debug\Daivata.Repository.dll
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata.Repository\bin\Debug\Daivata.Repository.pdb
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata.Repository\bin\Debug\Daivata.Common.dll
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata.Repository\bin\Debug\Daivata.Common.pdb
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata.Repository\obj\Debug\Daivata.Repository.csprojResolveAssemblyReference.cache
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata.Repository\obj\Debug\Daivata.Repository.dll
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata.Repository\obj\Debug\Daivata.Repository.pdb
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata.Repository\bin\Debug\Daivata.DB.dll
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata.Repository\bin\Debug\Daivata.DB.pdb

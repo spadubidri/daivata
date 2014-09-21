@@ -32,3 +32,34 @@ function showCurrentStepInfo(step) {
     var id = "#" + step;
     $(id).addClass("activeStepInfo");
 }
+
+
+function submitAjax(oData) {
+    // debugger;
+    if ((typeof (oData) != "undefined")) {
+        if ((typeof (oData.type) != "undefined") && (typeof (oData.url) != "undefined") && (typeof (oData.data) != "undefined") && (typeof (oData.success) == "function")) {
+            var onErrorMethod;
+            if ((oData.error == "undefined") || (typeof (oData.error) != "function")) {
+                onErrorMethod = function () { showErrorValidationSummary([generalErrorMessage]); }
+            }
+            else {
+                onErrorMethod = oData.error;
+            }
+
+            $.ajax({
+                type: oData.type,
+                url: oData.url,
+                data: oData.data,
+                beforeSend: oData.beforeSend,
+                success: oData.success,
+                error: onErrorMethod,
+                complete: oData.complete
+            });
+        }
+    }
+    return false;
+}
+
+function getFormData(formid) {
+    return $("#" + formid).serialize();
+}

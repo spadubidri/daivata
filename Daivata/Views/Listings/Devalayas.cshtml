@@ -1,245 +1,42 @@
-﻿@{
+﻿@model List<Daivata.Entities.DevalayaSummary>
 
-    <nav class="navbar navbar-default navbarlisting" role="navigation">
-
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle searchnavbar" data-toggle="dropdown">Most Viewed <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Most Viewed</a></li>
-                        <li><a href="#">Recently Added</a></li>
-                    </ul>
-                </li>
-
-                <li><a href="#">/</a></li>
-
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle searchnavbar" data-toggle="dropdown">India<span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">India</a></li>
-                        <li><a href="#">Srilanka</a></li>
-                        <li><a href="#">Nepal</a></li>
-                        <li><a href="#">Singapore</a></li>
-                        <li><a href="#">United States</a></li>
-                    </ul>
-                </li>
-
-                <li><a href="#">/</a></li>
-
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle searchnavbar" data-toggle="dropdown">Karnataka<span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Karnataka</a></li>
-                        <li><a href="#">Kerala</a></li>
-                        <li><a href="#">Tamil Nadu</a></li>
-                        <li><a href="#">Andhra Pradesh</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">/</a></li>
-
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle searchnavbar" data-toggle="dropdown">Udupi<span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Udupi</a></li>
-                        <li><a href="#">Dakshina Kannada</a></li>
-                        <li><a href="#">Uttar Kannada</a></li>
-                        <li><a href="#">Bangalore</a></li>
-                    </ul>
-                </li>
-
-                <li><a href="#" class="searchnavbar">added</a></li>
-
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle searchnavbar" data-toggle="dropdown">Today<span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Today</a></li>
-                        <li><a href="#">Yesterday</a></li>
-                        <li><a href="#">This week</a></li>
-                        <li><a href="#">This Month</a></li>
-                        <li><a href="#">This Year</a></li>
-                        <li><a href="#">All Time</a></li>
-                    </ul>
-                </li>
-                <li><a href="#" class="searchnavbar"><span class="fa fa-location-arrow"></span>&nbsp;&nbsp;Near My location</a></li>
-                <li><a href="#" class="searchnavbar">New Devalaya </a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <form class="navbar-form navbar-left" role="search">
-                    <div class="form-group">
-                        <input type="text" class="form-control searchtext" placeholder="Search">
-                    </div>
-                    <button type="submit" class="btn btn-default searchtext">Go</button>
-                </form>
-            </ul>
-        </div>
-    </nav>
-
-<br />
+    <br />
+    <br /><br />
+<div class="container" style="text-align:right"><a href="~/Listings/CreateNewDevalaya">Create new Devalaya Listing</a> </div>
     
-        <div id="listings" class="row">
+    <div class="feature">
+    <div class="container">
+        <div class="row">
+            @for (int listCnt = 0; listCnt < Model.Count(); listCnt++){
 
-
-            <div class="col-md-3">
-                <div class="panel panel-primary">
+                            
+                    
+                <div class="col-md-3 col-sm-3">
+                <div class="feature-item">
                     <div class="panel-heading">
-                        <a href="~/Details/Devalaya/2345-sd0as-12233">Jayadurga Parameshhwari</a>
+                        @if (Model[listCnt].Title.Length >= 20) { 
+                        <a href="~/Details/Devalaya/@Model[listCnt].Identifier"><h5>@Model[listCnt].Title.Substring(0, 20)..</h5></a>
+                        }
+                        else
+                        {
+                            <a href="~/Details/Devalaya/@Model[listCnt].Identifier"><h5>@Model[listCnt].Title</h5></a>
+                        }
                     </div>
-                    <div style="margin: 10px; height:300px">
-                        <img class="img-circle center-block" src="~/Content/Img/img1.jpg" />
+                    <div style="margin: 10px; height:250px; color:white;">
+                        <img class="img-circle center-block img-highlight" src="~/Content/@Model[listCnt].ThumbNail" />
                         <br />
-                        Location - Udupi, Karnataka <br />
-                        Diety - Durga Parameshwari <br />
-
-                        <br />
-                        Jayadura Parameshwari which is situalted near Udupi approx 5 kms. You will find this on the way to udipi near the welcome statue.
-
-
-                    </div>
-                    <div class="panel-footer text-center">
-                        <span class="fa fa-star">255 &nbsp;Follow</span>
+                        @Model[listCnt].ShortDescription<br />
+                        @Model[listCnt].Location<br />
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-3">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <a href="~/Details/Devalaya/2345-sd0as-12233">Sri Krishna Mutt</a>
-                    </div>
-                    <div style="margin: 10px; height:300px">
-                        <img class="img-circle center-block" src="~/Content/Img/img2.jpg" />
-                        <br />
-
-                        Location - Udupi, Karnataka <br />
-                        Diety - Durga Parameshwari <br />
-                    </div>
-                    <div class="panel-footer text-center">
-                        <span class="fa fa-star">&nbsp;Follow</span>
-                    </div>
-                </div>
+            
+            }
             </div>
+    </div>
+    </div>
 
 
 
-            <div class="col-md-3">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <a href="">Cheluvaraya Swamy</a>
-                    </div>
-                    <div style="margin: 10px; height:300px">
-                        <img class="img-circle center-block" src="~/Content/Img/img3.jpg" />
-                        <br />
-
-                        Location - Melkote, Mandya<br />
-                        Diety - Cheluvaraya Swamy <br />
-                    </div>
-                    <div class="panel-footer text-center">
-                        <span class="fa fa-star">&nbsp;Follow</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <a href="">Dodda Ganapathi</a>
-                    </div>
-                    <div style="margin: 10px; height:300px">
-                        <img class="img-circle center-block" src="~/Content/Img/img4.jpg" />
-                        <br />
-
-                        Location - Bsavannagudi, Bangalore<br />
-                        Diety - Ganapathi <br />
-                    </div>
-                    <div class="panel-footer text-center">
-                        <span class="fa fa-star">&nbsp;Follow</span>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-        <div id="listings" class="row">
-            <div class="col-md-3">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <a href="">Jayadurga Parameshhwari</a>
-                    </div>
-                    <div style="margin: 10px; height:300px">
-                        <img class="img-circle center-block" src="~/Content/Img/img1.jpg" />
-                        <br />
-                        Location - Udupi, Karnataka <br />
-                        Diety - Durga Parameshwari <br />
-
-                        <br />
-                        Jayadura Parameshwari which is situalted near Udupi approx 5 kms. You will find this on the way to udipi near the welcome statue.
 
 
-                    </div>
-                    <div class="panel-footer text-center">
-                        <span class="fa fa-star">255 &nbsp;Follow</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <a href="">Sri Krishna Mutt</a>
-                    </div>
-                    <div style="margin: 10px; height:300px">
-                        <img class="img-circle center-block" src="~/Content/Img/img2.jpg" />
-                        <br />
-
-                        Location - Udupi, Karnataka <br />
-                        Diety - Durga Parameshwari <br />
-                    </div>
-                    <div class="panel-footer text-center">
-                        <span class="fa fa-star">&nbsp;Follow</span>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div class="col-md-3">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <a href="">Cheluvaraya Swamy</a>
-                    </div>
-                    <div style="margin: 10px; height:300px">
-                        <img class="img-circle center-block" src="~/Content/Img/img3.jpg" />
-                        <br />
-
-                        Location - Melkote, Mandya<br />
-                        Diety - Cheluvaraya Swamy <br />
-                    </div>
-                    <div class="panel-footer text-center">
-                        <span class="fa fa-star">&nbsp;Follow</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <a href="">Dodda Ganapathi</a>
-                    </div>
-                    <div style="margin: 10px; height:300px">
-                        <img class="img-circle center-block" src="~/Content/Img/img4.jpg" />
-                        <br />
-
-                        Location - Bsavannagudi, Bangalore<br />
-                        Diety - Ganapathi <br />
-                    </div>
-                    <div class="panel-footer text-center">
-                        <span class="fa fa-star">&nbsp;Follow</span>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-}
