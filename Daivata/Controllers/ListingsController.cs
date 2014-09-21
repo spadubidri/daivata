@@ -91,12 +91,13 @@ namespace Daivata.UI
         public ActionResult UploadThumbnail(Guid id)
         {
             ActionResult result;
+            var httpPostedFile = HttpContext.Request.Files["uploadedimage"];
             try
             {
                 if (HttpContext.Request.Files.AllKeys.Any())
                 {
                     // Get the uploaded image from the Files collection
-                    var httpPostedFile = HttpContext.Request.Files["uploadedimage"];
+                    
                     if (httpPostedFile != null)
                     {
                         // Validate the uploaded image(optional)
@@ -116,7 +117,14 @@ namespace Daivata.UI
             }
             catch (Exception ex)
             {
-                result = new JsonResult() { Data = JsonHelper.GetStatusForm(false, "failure") };
+
+                // azure has a problem so just update the file ae for now
+                string thumnail = "/Img/" + httpPostedFile.FileName;
+
+                DevalayaListingRepository repository = new DevalayaListingRepository();
+                repository.UpdateThumbnail(id, thumnail);
+
+                result = new JsonResult() { Data = JsonHelper.GetStatusForm(true, id.ToString()) };
             }
 
             return result;

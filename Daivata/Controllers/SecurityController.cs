@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Daivata.Controllers
+namespace Daivata.UI
 {
     public class SecurityController : Controller
     {
@@ -22,6 +22,24 @@ namespace Daivata.Controllers
         {
 
             return View();
+        }
+
+        public ActionResult TwitterLogin()
+        {
+            TwitterIntegration helper = new TwitterIntegration();
+            string signinurl = helper.SigninUrl();
+            Response.Redirect(signinurl);
+
+            return null;
+        }
+
+        public ActionResult TwitterCallback()
+        {
+
+            TwitterIntegration helper = new TwitterIntegration();
+            string signinurl = helper.GetUserData();
+            return null;
+
         }
 
         public ActionResult FbLogin()
@@ -94,7 +112,7 @@ namespace Daivata.Controllers
                 authcookie.Expires = DateTime.Now.AddDays(-30);
                 Response.Cookies.Add(authcookie);
             }
-            Response.Redirect("http://localhost/Daivata.UI/");
+            Response.Redirect("/");
 
             return null;
         }

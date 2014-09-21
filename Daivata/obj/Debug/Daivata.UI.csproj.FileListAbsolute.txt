@@ -62,3 +62,7 @@ C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\Daivata.DB.dll
 C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\Daivata.DB.pdb
 C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\Facebook.dll
 C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\Facebook.xml
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\Hammock.ClientProfile.dll
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\TweetSharp.dll
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\Hammock.ClientProfile.pdb
+C:\Users\subramanya_p1\Documents\GitHub\daivata\Daivata\bin\TweetSharp.pdb
