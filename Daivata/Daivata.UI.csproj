@@ -272,6 +272,10 @@
       <Project>{930a83d1-7e5b-4988-bebd-7263464248a4}</Project>
       <Name>Daivata.Repository</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Daivata.Storage\Daivata.Storage.csproj">
+      <Project>{5d6460a8-7b9f-45a3-838d-7196bca1bd73}</Project>
+      <Name>Daivata.Storage</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

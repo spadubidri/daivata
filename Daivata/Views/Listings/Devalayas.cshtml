@@ -14,16 +14,16 @@
                 <div class="col-md-3 col-sm-3">
                 <div class="feature-item">
                     <div class="panel-heading">
-                        @if (Model[listCnt].Title.Length >= 20) { 
-                        <a href="~/Details/Devalaya/@Model[listCnt].Identifier"><h5>@Model[listCnt].Title.Substring(0, 20)..</h5></a>
+                        @if (Model[listCnt].Title.Length >= 15) { 
+                        <a href="~/Details/Devalaya/@Model[listCnt].Identifier"><h4>@Model[listCnt].Title.Substring(0, 15)..</h4></a>
                         }
                         else
                         {
-                            <a href="~/Details/Devalaya/@Model[listCnt].Identifier"><h5>@Model[listCnt].Title</h5></a>
+                            <a href="~/Details/Devalaya/@Model[listCnt].Identifier"><h4>@Model[listCnt].Title</h4></a>
                         }
                     </div>
                     <div style="margin: 10px; height:250px; color:white;">
-                        <img class="img-circle center-block img-highlight" src="~/Content/@Model[listCnt].ThumbNail" />
+                        <img class="img-circle center-block img-highlight" src="@Model[listCnt].ThumbNail" />
                         <br />
                         @Model[listCnt].ShortDescription<br />
                         @Model[listCnt].Location<br />

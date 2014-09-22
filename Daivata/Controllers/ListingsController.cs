@@ -7,6 +7,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Collections.Generic;
+using Daivata.Storage;
+using System.Configuration;
+
 
 namespace Daivata.UI
 {
@@ -100,14 +103,11 @@ namespace Daivata.UI
                     
                     if (httpPostedFile != null)
                     {
-                        // Validate the uploaded image(optional)
-
-                        // Get the complete file path
-                        var fileSavePath = Path.Combine(HttpContext.Server.MapPath("~/Content/Img/Uploaded"), httpPostedFile.FileName);
-
-                        // Save the uploaded file to "UploadedFiles" folder
-                        httpPostedFile.SaveAs(fileSavePath);
-                        string thumnail = "/Img/Uploaded/" + httpPostedFile.FileName;
+                        string[] fileSplitter = httpPostedFile.FileName.Split('.');
+                        string fileExtension = fileSplitter[fileSplitter.Length-1];
+                        string fileName = id + "." + fileExtension;
+                        string thumnail = ConfigurationManager.AppSettings["StorageBaseURL"] + fileName;
+                        StorageUtils.UploadThumbnail(fileName, httpPostedFile.InputStream);
 
                         DevalayaListingRepository repository = new DevalayaListingRepository();
                         repository.UpdateThumbnail(id, thumnail);
@@ -117,16 +117,7 @@ namespace Daivata.UI
             }
             catch (Exception ex)
             {
-                string thumnail = "/img/NoImage.jpg";
-                // azure has a problem so just update the file ae for now, hack to keep it just for me 
-                if (httpPostedFile.FileName.Contains("update"))
-                {
-                    thumnail = "/Img/" + httpPostedFile.FileName.Replace("update","");
-                }
-                DevalayaListingRepository repository = new DevalayaListingRepository();
-                repository.UpdateThumbnail(id, thumnail);
-
-                result = new JsonResult() { Data = JsonHelper.GetStatusForm(true, id.ToString()) };
+                result = new JsonResult() { Data = JsonHelper.GetStatusForm(false, "failure") };
             }
 
             return result;

@@ -11,22 +11,22 @@ body {
     background-color:rgb(42, 18, 19);
 }
 h1 {
-	font-family: 'Century Gothic', sans-serif; font-weight: 700;color:white;
+	font-family: 'Century Gothic', Verdana; color:white;
 }
 h2 {
-	font-family: 'Century Gothic', sans-serif; font-weight: 700;color:white;
+	font-family: 'Century Gothic', Verdana; color:white;
 }
 h3 {
-	font-family: 'Century Gothic', sans-serif; font-weight: 700; color:white;
+	font-family: 'Century Gothic', Verdana; color:white;
 }
 h4 {
-	font-family: 'Century Gothic', sans-serif; font-weight: 700;color:white;
+	font-family: 'Century Gothic', Verdana; color:white;
 }
 h5 {
-	font-family: 'Century Gothic', sans-serif; font-weight: 700;color:white;
+	font-family: 'Century Gothic', Verdana; color:white;
 }
 h6 {
-	font-family: 'Century Gothic', sans-serif; font-weight: 700;color:white;
+	font-family: 'Century Gothic', Verdana; color:white;
 }
 p {
 	margin: 0px; padding: 0px;color:white;

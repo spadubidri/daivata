@@ -2,7 +2,7 @@
 
 
 <div class="row" style="padding-top:55px;">
-    <div class="col-md-3 "><img src="~/Content/@Model.ThumbNail" class="img-circle center-block img-highlight" /></div>
+    <div class="col-md-3 "><img src="@Model.ThumbNail" class="img-circle center-block img-highlight" /></div>
     <div class="col-md-9 ">
         <h3>@Model.Title</h3>
         <h4>@Model.ShortDescription</h4>
@@ -62,8 +62,8 @@
                         <div>Updates</div>
                     </div>
                     <div id="last" class="col-md-1" onclick="javascript: resetActive(event, 80, 'step-9');">
-                        <span class="fa fa-bell"></span>
-                        <div>Followers</div>
+                        <span class="fa fa-list"></span>
+                        <div>References</div>
                     </div>
                     <div id="last" class="col-md-1" onclick="javascript: resetActive(event, 90, 'step-10');">
                         <span class="fa fa-bus"></span>
