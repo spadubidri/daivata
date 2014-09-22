@@ -155,6 +155,7 @@
     <Content Include="Content\Img\img6.jpg" />
     <Content Include="Content\Img\img7.jpg" />
     <Content Include="Content\Img\img8.jpg" />
+    <Content Include="Content\Img\img9.jpg" />
     <Content Include="Content\Img\logonew.png" />
     <Content Include="Content\Img\logoshort.png" />
     <Content Include="Content\Img\logoshortlogin.png" />
@@ -217,7 +218,9 @@
     <Content Include="Scripts\jquery-2.1.1.min.js" />
     <Content Include="Scripts\prettify.js" />
     <Content Include="Scripts\wysihtml5-0.3.0.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -237,6 +240,7 @@
     <Content Include="Views\Contests\Index.cshtml" />
     <Content Include="Views\Listings\CreateNewDevalaya.cshtml" />
     <Content Include="Views\Listings\Thankyou.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -247,7 +251,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Start.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\_ViewStart.cshtml" />

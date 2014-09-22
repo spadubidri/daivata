@@ -16,7 +16,7 @@ namespace Daivata.UI
         //
         // GET: /Home/
 
-        public ActionResult Index()
+        public ActionResult Start()
         {
             // populate sldiers
             if (HomeSliderRepository.sliders == null)
@@ -26,6 +26,11 @@ namespace Daivata.UI
             }
 
             return View(HomeSliderRepository.sliders);
+        }
+
+        public ActionResult Index()
+        {
+            return View();
         }
 
         [AuthorizeAccess]

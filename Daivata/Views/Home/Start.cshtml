@@ -1,0 +1,51 @@
+﻿@model List<Daivata.Entities.HomeSlider>
+<div class="bannercontainer">
+    <div class="banner">
+        <ul>
+
+@for (int sliderCnt = 0; sliderCnt < Model.Count(); sliderCnt++)
+{
+            <li data-slotamount="7" data-transition="slidehorizontal">
+                <img src="~/@Model[sliderCnt].Image.ToString().Replace("~/","")" />
+
+                <div class="caption lfl" data-easing="easeInQuad" data-start="1200"
+                     data-speed="600" data-y="100" data-x="20">
+                    <h2>@Model[sliderCnt].MainCaption</h2>
+                </div>
+                <div class="caption lfr" data-start="1800" data-speed="300" data-y="240"
+                     data-x="20">
+                    <p>
+                        @Model[sliderCnt].ShortDescription
+                    </p>
+                </div>
+            </li>    
+}
+        </ul>
+    </div>
+</div>
+
+
+<div>
+    <div class="feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <!-- Feature Item -->
+                    <div class="feature-item" style="background-color:transparent;border:none;box-shadow:none">
+                        <h4>Gallery Updates</h4>
+                        <br />
+                        <img src="~/Content/Img/photogal.png" />
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <!-- Feature Item -->
+                    <div class="feature-item" style="background-color:transparent;border:none;box-shadow:none">
+                        <h4>Latest Activity</h4>
+                        <br />
+                        <img src="~/Content/Img/photogal.png" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
