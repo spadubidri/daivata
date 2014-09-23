@@ -1,279 +1,341 @@
 ﻿@model Daivata.Entities.Devalaya
 
 
-<div class="row" style="padding-top:55px;">
-    <div class="col-md-3 "><img src="@Model.ThumbNail" class="img-circle center-block img-highlight" /></div>
-    <div class="col-md-9 ">
-        <h3>@Model.Title</h3>
-        <h4>@Model.ShortDescription</h4>
-        @*<span class="fa fa-star"><b>&nbsp;255 &nbsp;Follow</b></span>*@
+<br /><br />
+<br /><br />
+<!-- Main Div-->
 
-        @if (Model.Status == "N")
-        {
-            <form id="frmSubmit">
-                <input type="hidden" id="devalayaId" name="devalayaId" value="@Model.Identifier" />
-                <input type="button" value="Confirm and Submit" class="btn-success" onclick="javascript: confirmSubmission('frmSubmit')" />
-            </form> <br />
-        }
+<div class="wrapper" style="min-height:550px;">
+    <div class="box">
+        <div class="row">
 
+            <!-- sidebar -->
+            <div class="column col-sm-2" id="sidebar">
+                <br /><br /><br /><br />
+                <button class="navbar-toggle" type="button"
+                        data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                </button>
 
-        </div>
-    </div>
+                <ul class="nav">
+                    <li class="active">
+                        <a href="#" onclick="javascript: resetActive(event, 0, 'step-1');">Details</a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="javascript: resetActive(event, 10, 'step-2');">Timings</a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="javascript: resetActive(event, 20, 'step-3');">Location</a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="javascript: resetActive(event, 30, 'step-4');">Contact</a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="javascript: resetActive(event, 40, 'step-5');">FAQ</a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="javascript: resetActive(event, 10, 'step-6');">Discuss</a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="javascript: resetActive(event, 10, 'step-7');">Events</a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="javascript: resetActive(event, 10, 'step-8');">References</a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="javascript: resetActive(event, 10, 'step-9');">Travel Guide</a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="javascript: resetActive(event, 10, 'step-10');">Near By</a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="javascript: resetActive(event, 10, 'step-11');">New Photo Album</a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="javascript: resetActive(event, 10, 'step-12');">Link a Video</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- /sidebar -->
+            <!-- main -->
+            <div class="column col-sm-6" id="main">
+                <div class="row" style="padding-top:55px;height:150px;">
+                    <div class="col-md-3 "><img src="@Model.ThumbNail" class="img-circle center-block img-highlight" /></div>
+                    <div class="col-md-9 ">
+                        <h3 style="color:brown;">@Model.Title</h3>
+                        <h4 style="color:brown;">@Model.ShortDescription</h4>
+                        @*<span class="fa fa-star"><b>&nbsp;255 &nbsp;Follow</b></span>*@
 
-
-        
-        <br /><br />
-        <!-- Main Div-->
-
-        <div class="col-md-9">
-
-            <div class="row">
-                <div class="row step">
-                    <div id="div1" class="col-md-1 activestep thumbnailpadding" onclick="javascript: resetActive(event, 0, 'step-1');">
-                        <span class="fa fa-book"></span>
-                        <div>Details</div>
-                    </div>
-                    <div class="col-md-1 " onclick="javascript: resetActive(event, 10, 'step-2');">
-                        <span class="fa fa-clock-o"></span>
-                        <div>Timings</div>
-                    </div>
-                    <div class="col-md-1" onclick="javascript: resetActive(event, 20, 'step-3');">
-                        <span class="fa fa-map-marker"></span>
-                        <div>Location</div>
-                    </div>
-                    <div class="col-md-1" onclick="javascript: resetActive(event, 30, 'step-4');">
-                        <span class="fa fa-phone"></span>
-                        <div>Contact</div>
-                    </div>
-                    <div class="col-md-1" onclick="javascript: resetActive(event, 40, 'step-5');">
-                        <span class="fa fa-question"></span>
-                        <div>FAQ</div>
-                    </div>
-                    <div id="last" class="col-md-1" onclick="javascript: resetActive(event, 50, 'step-6');">
-                        <span class="fa fa-group"></span>
-                        <div>Discuss</div>
-                    </div>
-                    <div id="last" class="col-md-1" onclick="javascript: resetActive(event, 60, 'step-7');">
-                        <span class="fa fa-calendar"></span>
-                        <div>Events</div>
-                    </div>
-                    <div id="last" class="col-md-1" onclick="javascript: resetActive(event, 70, 'step-8');">
-                        <span class="fa fa-history"></span>
-                        <div>Updates</div>
-                    </div>
-                    <div id="last" class="col-md-1" onclick="javascript: resetActive(event, 80, 'step-9');">
-                        <span class="fa fa-list"></span>
-                        <div>References</div>
-                    </div>
-                    <div id="last" class="col-md-1" onclick="javascript: resetActive(event, 90, 'step-10');">
-                        <span class="fa fa-bus"></span>
-                        <div>GO!!</div>
+                        @if (Model.Status == "N")
+                        {
+                            <form id="frmSubmit">
+                                <input type="hidden" id="devalayaId" name="devalayaId" value="@Model.Identifier" />
+                                <input type="button" value="Confirm and Submit" class="btn-success" onclick="javascript: confirmSubmission('frmSubmit')" />
+                            </form> <br />
+                        }
                     </div>
                 </div>
-            </div>
-            <div class="row setup-content step activeStepInfo" id="step-1">
-                <div class="col-xs-12">
-                    <div class="col-md-12 well text-left">
+                <div class="row setup-content step activeStepInfo" id="step-1" >
+                    <div class="col-xs-12">
+                        <div class="col-md-12 well text-left">
 
-                        @Html.Raw(Model.Details)
-                    </div>
-                </div>
-            </div>
-            <div class="row setup-content step hiddenStepInfo" id="step-2">
-                <div class="col-xs-12">
-                    <div class="col-md-12 well text-left">
-                        @Html.Raw(Model.TimingDetails)
-                    </div>
-                </div>
-            </div>
-            <div class="row setup-content step hiddenStepInfo" id="step-3">
-                <div class="col-xs-12">
-                    <a href="https://www.google.co.in/maps/place/%E0%A4%89%E0%A4%A1%E0%A5%81%E0%A4%AA%E0%A5%80+%E0%A4%95%E0%A5%83%E0%A4%B7%E0%A5%8D%E0%A4%A3+%E0%A4%AE%E0%A4%82%E0%A4%A6%E0%A4%BF%E0%A4%B0/13.332222,74.746111,17z/data=!3m1!4b1!4m2!3m1!1s0x3bbcbb6d7a84309b:0xfc31a5d1f9fa2f85" target="new">View it on Google Map </a> <br />
-                    <div class="page-section">
-                        <div class="row">
-                            <div id="map-container"></div>
+                            @Html.Raw(Model.Details)
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row setup-content step hiddenStepInfo" id="step-4">
-                <div class="col-xs-12">
-                    <div class="col-md-12 well text-center">
-                        @Html.Raw(Model.Contact)
+                <div class="row setup-content step hiddenStepInfo" id="step-2">
+                    <div class="col-xs-12">
+                        <div class="col-md-12 well text-left">
+                            @Html.Raw(Model.TimingDetails)
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row setup-content step hiddenStepInfo" id="step-5">
-                <div class="col-xs-12">
-                    <div class="col-md-12 well text-left">
-                        @Html.Raw(Model.FAQ)
+                <div class="row setup-content step hiddenStepInfo" id="step-3">
+                    <div class="col-xs-12">
+                        <a href="https://www.google.co.in/maps/place/%E0%A4%89%E0%A4%A1%E0%A5%81%E0%A4%AA%E0%A5%80+%E0%A4%95%E0%A5%83%E0%A4%B7%E0%A5%8D%E0%A4%A3+%E0%A4%AE%E0%A4%82%E0%A4%A6%E0%A4%BF%E0%A4%B0/13.332222,74.746111,17z/data=!3m1!4b1!4m2!3m1!1s0x3bbcbb6d7a84309b:0xfc31a5d1f9fa2f85" target="new">View it on Google Map </a> <br />
+                        <div class="page-section">
+                            <div class="row">
+                                <div id="map-container"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row setup-content step hiddenStepInfo" id="step-6">
-                <div class="col-xs-12">
-                    <div class="col-md-12 well text-left">
-                        
+                <div class="row setup-content step hiddenStepInfo" id="step-4">
+                    <div class="col-xs-12">
+                        <div class="col-md-12 well text-center">
+                            @Html.Raw(Model.Contact)
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row setup-content step hiddenStepInfo" id="step-7">
-                <div class="col-xs-12">
-                    <div class="col-md-12 well text-left">
-                        
+                <div class="row setup-content step hiddenStepInfo" id="step-5">
+                    <div class="col-xs-12">
+                        <div class="col-md-12 well text-left">
+                            @Html.Raw(Model.FAQ)
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row setup-content step hiddenStepInfo" id="step-8">
-                <div class="col-xs-12">
-                    <div class="col-md-12 well text-left">
-                        
+                <div class="row setup-content step hiddenStepInfo" id="step-6">
+                    <div class="col-xs-12">
+                        <div class="col-md-12 well text-left">
+
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row setup-content step hiddenStepInfo" id="step-9">
-                <div class="col-xs-12">
-                    <div class="col-md-12 well text-left">
+                <div class="row setup-content step hiddenStepInfo" id="step-7">
+                    <div class="col-xs-12">
+                        <div class="col-md-12 well text-left">
 
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row setup-content step hiddenStepInfo" id="step-10">
-                <div class="col-xs-12">
-                    <div class="col-md-12 well text-left">
-                        @Html.Raw(Model.TravelDetails)
+                <div class="row setup-content step hiddenStepInfo" id="step-8">
+                    <div class="col-xs-12">
+                        <div class="col-md-12 well text-left">
+
+                        </div>
                     </div>
                 </div>
+                <div class="row setup-content step hiddenStepInfo" id="step-9">
+                    <div class="col-xs-12">
+                        <div class="col-md-12 well text-left">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row setup-content step hiddenStepInfo" id="step-10">
+                    <div class="col-xs-12">
+                        <div class="col-md-12 well text-left">
+                            @Html.Raw(Model.TravelDetails)
+                        </div>
+                    </div>
+                </div>
+                <div class="row setup-content step hiddenStepInfo" id="step-11">
+                    <div class="col-xs-12">
+                        <div class="col-md-12 well text-left">
+                            
+                            <div class="row">
+                                <div>
+                                    Upload a new photo: <br />
+                                    <form id="frmAlbum">
+                                        <input type="text" class="form-control" name="title" id="title" placeholder="Album Title" required style="width:80%;"> <br />
+                                        <input type="file" id="uploadPhoto" multiple class="form-control" style="width:80%;" onchange="javascript:updateThumnailpreview()" />
+                                    </form>
+                                </div>
+                                <div id="thumnailplaceholder" class="row" style="margin-right:0px;">
+
+                                </div>
+                                <br />
+                                <a href="" id="uploadLink" style="color:brown;font-weight:700;">Upload</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row setup-content step hiddenStepInfo" id="step-12">
+                    <div class="col-xs-12">
+                        <div class="col-md-12 well text-left">
+                            <input type="text" class="form-control" name="videolink" id="videolink" placeholder="Youtube Link" required style="width:80%;" onchange="javascript:showVideo()"> <br />
+                            <iframe width="560" height="315" id="iframevideo"></iframe>
+
+                            
+                        </div>
+                    </div>
+                </div>
+
             </div>
+            <div class="column col-sm-4" id="gallery" style="overflow: hidden; padding-left: 20px;">
+                <br /><br /><br /><br />
+                    @*<div class="row">
+                        <div >
+                            Upload a new photo: <br />
+                            <form id="frmAlbum">
+                                <input type="text" class="form-control" name="title" id="title" placeholder="Album Title" required style="width:80%;"> <br />
+                                <input type="file" id="uploadPhoto" multiple class="form-control" style="width:80%;" onchange="javascript:updateThumnailpreview()" />
+                            </form>
+                        </div>
+                        <div id="thumnailplaceholder" class="row" style="margin-right:0px;">
 
-        </div>
+                        </div>
+                    </div>
+                
+                    *@
+                    <h5>Krishna Janmashtami</h5>
+                    <h6>Updated by Subramanya Padubidri 23/9/2014</h6>
+                    <div class="row" style="margin-right:0px;">
+                        <div class="col-md-3 col-sm-3" style="padding:2px;">
+                            <img src="~/Content/Img/img2.jpg" class="img-responsive img-thumbnail" />
+                        </div>
+                        <div class="col-md-3 col-sm-3 " style="padding:2px;">
+                            <img src="~/Content/Img/img2.jpg" class="img-responsive img-thumbnail" />
+                        </div><div class="col-md-3 col-sm-3 " style="padding:2px;">
+                            <img src="~/Content/Img/img2.jpg" class="img-responsive img-thumbnail" />
+                        </div>
+                        <div class="col-md-3 col-sm-3 " style="padding:2px;">
+                            <img src="~/Content/Img/img2.jpg" class="img-responsive img-thumbnail" />
+                        </div>
 
-
-
-        <div class="col-md-3">
-            <div class="row">
-                <div class="col-xs-12 col-md-12 thumbnailpadding">
-                    <a href="#" class="thumbnail">
-                        <img src="~/Content/Img/gal1.jpg" />
-                    </a>
+                    </div>
+                <div class="row" style="margin-right:0px;">
+                    <div class="col-md-3 col-sm-3" style="padding:2px;">
+                        <img src="~/Content/Img/img2.jpg" class="img-responsive img-thumbnail" />
+                    </div>
+                    <div class="col-md-3 col-sm-3 " style="padding:2px;">
+                        <img src="~/Content/Img/img2.jpg" class="img-responsive img-thumbnail" />
+                    </div><div class="col-md-3 col-sm-3 " style="padding:2px;">
+                        <img src="~/Content/Img/img2.jpg" class="img-responsive img-thumbnail" />
+                    </div>
+                    <div class="col-md-3 col-sm-3 " style="padding:2px;">
+                        <img src="~/Content/Img/img2.jpg" class="img-responsive img-thumbnail" />
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 col-md-12 thumbnailpadding">
-                    <a href="#" class="">
-                        Upload a photo
-                    </a>
+                <div class="row" style="margin-right:0px;">
+                    <h5>Pooja at Mutt</h5>
+                    <iframe width="100%" height="250px" src="http://www.youtube.com/embed/Uf0cSWZLVDw?wmode=opaque"></iframe>
                 </div>
-            </div>
-
-            <div class="row">
-                <div class="col-xs-6 col-md-3 thumbnailpadding">
-                    <a href="#" class="thumbnail">
-                        <img src="~/Content/Img/gal1.jpg" />
-                    </a>
                 </div>
-                <div class="col-xs-6 col-md-3 thumbnailpadding">
-                    <a href="#" class="thumbnail">
-                        <img src="~/Content/Img/gal2.jpg" />
-                    </a>
-                </div>
-                <div class="col-xs-6 col-md-3 thumbnailpadding">
-                    <a href="#" class="thumbnail">
-                        <img src="~/Content/Img/gal3.jpg" />
-                    </a>
-                </div>
-                <div class="col-xs-6 col-md-3 thumbnailpadding">
-                    <a href="#" class="thumbnail">
-                        <img src="~/Content/Img/gal4.jpg" />
-                    </a>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-xs-6 col-md-3 thumbnailpadding">
-                    <a href="#" class="thumbnail">
-                        <img src="~/Content/Img/img2.jpg" />
-                    </a>
-                </div>
-                <div class="col-xs-6 col-md-3 thumbnailpadding">
-                    <a href="#" class="thumbnail">
-                        <img src="~/Content/Img/img2.jpg" />
-                    </a>
-                </div>
-                <div class="col-xs-6 col-md-3 thumbnailpadding">
-                    <a href="#" class="thumbnail">
-                        <img src="~/Content/Img/img2.jpg" />
-                    </a>
-                </div>
-                <div class="col-xs-6 col-md-3 thumbnailpadding">
-                    <a href="#" class="thumbnail">
-                        <img src="~/Content/Img/img2.jpg" />
-                    </a>
-                </div>
-            </div>
-        </div>
-        <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
-        <script language="javascript">
-            function init_map() {
-                var myLocation = new google.maps.LatLng(13.332222, 74.746111);
-                var mapOptions = {
-                    center: myLocation,
-                    zoom: 20
-                };
-
-                var marker = new google.maps.Marker({
-                    position: myLocation,
-                    title: "Location"
-                });
-
-                var map = new google.maps.Map(document.getElementById("map-container"),
-                    mapOptions);
-
-                marker.setMap(map);
-            }
-
-            google.maps.event.addDomListener(window, 'load', init_map);
-            /* end google maps -----------------------------------------------------*/
+                
+ </div>
 
 
-            function confirmSubmission(formID) {
-                setPleaseWaitModalText("Please wait...", 'Save')
-                debugger;
-                var submiturl = "@Url.Action("ConfirmDealayaSubmission", "Listings")";
-                var _oData = {
-                    type: "POST",
-                    url: submiturl,
-                    data: getFormData(formID),
-                    success: processSuccessfulCreate,
-                    error: function () {
 
-                    },
-                    complete: null,
-                    dataType: "html"
-                };
-                submitAjax(_oData);
 
-            }
 
-            function processSuccessfulCreate(data) {
-                debugger;
-                clearPleaseWaitModalText("Save");
-                if (typeof (data) != "undefined") {
-                    if (data.Status) {
-                        var listingUrl = "@Url.Action("Thankyou", "Listings")"
-                        window.location = listingUrl;
+
+                <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+                <script language="javascript">
+                    function init_map() {
+                        var myLocation = new google.maps.LatLng(13.332222, 74.746111);
+                        var mapOptions = {
+                            center: myLocation,
+                            zoom: 20
+                        };
+
+                        var marker = new google.maps.Marker({
+                            position: myLocation,
+                            title: "Location"
+                        });
+
+                        var map = new google.maps.Map(document.getElementById("map-container"),
+                            mapOptions);
+
+                        marker.setMap(map);
                     }
-                }
-            }
 
-            function setPleaseWaitModalText(data, id) {
-                $("#pleaseWaitModel" + id).text(data);
-            }
+                    google.maps.event.addDomListener(window, 'load', init_map);
+                    /* end google maps -----------------------------------------------------*/
 
 
-            function clearPleaseWaitModalText(id) {
-                $("#pleaseWaitModel" + id).text("");
-            }
+                    function showVideo()
+                    {
+                        document.getElementById("iframevideo").src = document.getElementById("videolink").value;
+                        debugger;
+                    }
 
 
-        </script>
+                    function updateThumnailpreview() {
+                        debugger;
+                        
+                        var rawHTMml;
+                        document.getElementById("thumnailplaceholder").innerHTML = "";
+                        for(cnt=0;cnt<document.getElementById("uploadPhoto").files.length;cnt++){
+                            var oFReader = new FileReader();
+                            oFReader.readAsDataURL(document.getElementById("uploadPhoto").files[cnt]);
+
+                            oFReader.onload = function (oFREvent) {
+
+                                rawHTMml = "<div class=\"col-md-3 col-sm-3\" style=\"padding:2px; margin-left:20px;\"><img src=\"" + oFREvent.target.result + "\"id=\"imgupload1\" class=\"img-responsive img-thumbnail\" /></div>";
+                                
+                                //document.getElementById("imgupload1").src = oFREvent.target.result;
+                                document.getElementById("thumnailplaceholder").innerHTML = document.getElementById("thumnailplaceholder").innerHTML + rawHTMml;
+                            };
+
+                        }
+                        
+
+                    }
+
+
+
+                    function confirmSubmission(formID) {
+                        setPleaseWaitModalText("Please wait...", 'Save')
+                        debugger;
+                        var submiturl = "@Url.Action("ConfirmDealayaSubmission", "Listings")";
+                        var _oData = {
+                            type: "POST",
+                            url: submiturl,
+                            data: getFormData(formID),
+                            success: processSuccessfulCreate,
+                            error: function () {
+
+                            },
+                            complete: null,
+                            dataType: "html"
+                        };
+                        submitAjax(_oData);
+
+                    }
+
+                    function processSuccessfulCreate(data) {
+                        debugger;
+                        clearPleaseWaitModalText("Save");
+                        if (typeof (data) != "undefined") {
+                            if (data.Status) {
+                                var listingUrl = "@Url.Action("Thankyou", "Listings")"
+                                window.location = listingUrl;
+                            }
+                        }
+                    }
+
+                    function setPleaseWaitModalText(data, id) {
+                        $("#pleaseWaitModel" + id).text(data);
+                    }
+
+
+                    function clearPleaseWaitModalText(id) {
+                        $("#pleaseWaitModel" + id).text("");
+                    }
+
+
+                </script>

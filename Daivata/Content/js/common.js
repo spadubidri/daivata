@@ -1,4 +1,7 @@
 ﻿function resetActive(event, percent, step) {
+
+    debugger;
+
     $(".progress-bar").css("width", percent + "%").attr("aria-valuenow", percent);
     $(".progress-completed").text(percent + "%");
 
@@ -8,6 +11,7 @@
         }
     });
 
+    debugger;
     if (event.target.className == "col-md-2") {
         $(event.target).addClass("activestep");
     }
