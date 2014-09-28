@@ -40,9 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account.cs" />
+    <Compile Include="AccountAlias.cs" />
+    <Compile Include="AccountProfile.cs" />
+    <Compile Include="Album.cs" />
     <Compile Include="DataObjects.cs" />
     <Compile Include="Devalaya.cs" />
     <Compile Include="DevalayaSummary.cs" />
+    <Compile Include="Follower.cs" />
+    <Compile Include="Gallery.cs" />
     <Compile Include="HomeSliders.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

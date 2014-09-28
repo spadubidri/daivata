@@ -13,7 +13,7 @@
                 <div class="col-md-12 col-sm-12 activeStepInfo highlightarea" id="step1">
                     <div class="feature-item">
                         <div class="panel-heading">
-                            <h3> <img src="~/Content/Img/logoshort.png" /> Create New Devalaya on Daivatham.in!</h3>
+                            <h3 class="highlighthead"> <img src="~/Content/Img/logoshort.png" /> Create New Devalaya on Daivatham.in!</h3>
                         </div>
                         <div style="margin: 10px; height:340px; color:white;">
                             <input type="text" class="form-control" name="title" id="title" placeholder="Devalaya Title*" required style="width:40%;"> <br />
@@ -28,7 +28,7 @@
                 <div class="col-md-12 col-sm-12 hiddenStepInfo highlightarea" id="step2">
                     <div class="feature-item">
                         <div class="panel-heading">
-                            <h3><img src="~/Content/Img/logoshort.png" /> Details</h3>
+                            <h3 class="highlighthead"><img src="~/Content/Img/logoshort.png" /> Details</h3>
                         </div>
                         <div style="margin: 10px; height:340px; ">
                             <textarea class="textarea" name="devalayaDetails" id="devalayaDetails" style="width:80%; height:80%;" placeholder="Devalaya Details"></textarea> <br />
@@ -39,7 +39,7 @@
                 <div class="col-md-12 col-sm-12 hiddenStepInfo highlightarea" id="step3">
                     <div class="feature-item">
                         <div class="panel-heading">
-                            <h3><img src="~/Content/Img/logoshort.png" />Timings</h3>
+                            <h3 class="highlighthead"><img src="~/Content/Img/logoshort.png" />Timings</h3>
                         </div>
                         <div style="margin: 10px; height:340px;">
                             <textarea class="textarea" name="timings" id="timings" style="width:80%; height:80%;" placeholder="Devalaya Timings"></textarea> <br />
@@ -50,10 +50,11 @@
                 <div class="col-md-12 col-sm-12 hiddenStepInfo highlightarea" id="step4">
                     <div class="feature-item">
                         <div class="panel-heading">
-                            <h3><img src="~/Content/Img/logoshort.png" />Location</h3>
+                            <h3 class="highlighthead"><img src="~/Content/Img/logoshort.png" />Map Location</h3>
                         </div>
                         <div style="margin: 10px; height:340px; ">
-                            <input type="text" class="form-control" name="maplocation" id="maplocation" placeholder="Location" required style="width:400px;"> <br />
+                            <input type="text" class="form-control" name="maplocation" id="maplocation" placeholder="Enter Google Map search Query" required style="width:400px;" onchange="javascript:showMap()"> <br />
+                            <iframe id="iframeMap" width="600" height="300" frameborder="0" style="border:0" ></iframe>
                         </div>
                         <div style="text-align:right"><a href="javascript:reset('step5')">Next ></a></div>
                     </div>
@@ -61,7 +62,7 @@
                 <div class="col-md-12 col-sm-12 hiddenStepInfo highlightarea" id="step5">
                     <div class="feature-item">
                         <div class="panel-heading">
-                            <h3><img src="~/Content/Img/logoshort.png" />Contact</h3>
+                            <h3 class="highlighthead"><img src="~/Content/Img/logoshort.png" />Contact</h3>
                         </div>
                         <div style="margin: 10px; height:340px; ">
                             <textarea class="textarea" name="contact" id="contact" style="width:80%; height:80%;" placeholder="Devalaya Timings"></textarea> <br />
@@ -72,7 +73,7 @@
                 <div class="col-md-12 col-sm-12 hiddenStepInfo highlightarea" id="step6">
                     <div class="feature-item">
                         <div class="panel-heading">
-                            <h3><img src="~/Content/Img/logoshort.png" />FAQ</h3>
+                            <h3 class="highlighthead"><img src="~/Content/Img/logoshort.png" />FAQ</h3>
                         </div>
                         <div style="margin: 10px; height:340px;">
                             <textarea class="textarea" name="faq" id="faq" style="width:80%; height:80%;" placeholder="FAQ"></textarea> <br />
@@ -83,7 +84,7 @@
                 <div class="col-md-12 col-sm-12 hiddenStepInfo highlightarea" id="step7">
                     <div class="feature-item">
                         <div class="panel-heading">
-                            <h3>
+                            <h3 class="highlighthead">
                                 <img src="~/Content/Img/logoshort.png" />Travel Directions
                             </h3>
                         </div>
@@ -130,20 +131,24 @@
     function validatefirststep(step) {
         debugger;
 
-        // to do 
         var validation = true;
-        //if ($(title).text.length == 1) {
-        //    validation = false;
-        //}
+        if (document.getElementById("title").value == "")
+        {
+            $("#title").addClass("invalidentry");
+            //document.getElementById("title").addClass("invalidentry");
+            validation = false;
+        }
 
-        //if ($(shortDescription).text.length == 1) {
-        //    validation = false;
-        //}
+        if (document.getElementById("shortDescription").value == "") {
+            //document.getElementById("shortDescription").addClass("invalidentry");
+            $("#shortDescription").addClass("invalidentry");
+            //alert(document.getElementById("shortDescription").class)
+            validation = false;
+        }
+
 
         if(validation)
             reset(step)
-        else 
-            alert("Please fill required fields")
     }
 
     function reset(step) {
@@ -246,6 +251,9 @@
         $("#pleaseWaitModel").addClass("hideStepInfo");
     }
 
+    function showMap() {
+        document.getElementById("iframeMap").src = "https://www.google.com/maps/embed/v1/search?q=" + document.getElementById("maplocation").value + "&key=AIzaSyDtuEX4oIV8KK4EyDrAwXiZ_CD0rw32Zmo";
+    }
 
 </script>
 

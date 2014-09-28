@@ -26,5 +26,23 @@ namespace Daivata.Database
         public const string TimingDetails = "TimingDetails";
         public const string ThumbNailImage = "ThumbNailImage";
 
+        public const string AlbumTitle = "Title";
+        public const string GalleryType = "Type";
+        public const string GalleryFileName = "FileName";
+        public const string AlbumID = "AlbumID";
+
+        public const string AccountId = "AccountId";
+        public const string FirstName = "FirstName";
+        public const string LastName = "LastName";
+        public const string Email = "Email";
+        public const string ContactNumber = "ContactNumber";
+        public const string Source = "Source";
+
+        public const string ProfileID = "ProfileID";
+        public const string AliasId = "AliasId";
+        public const string AliasType = "AliasType";
+        public const string AliasName = "AliasName";
+        public const string CreatedByName = "CreatedByName";
+
 	}
 }

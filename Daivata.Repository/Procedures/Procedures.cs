@@ -15,5 +15,15 @@ namespace Daivata.Repository
         public const string UpdateDevalayaStatus = "dbo.proc_UpdateDevalayaStatus";
         public const string GetAllDevalayas = "dbo.proc_GetAllDevalayas";
         public const string UpdateDevalayaThumbnail = "dbo.proc_UpdateDevalayaThumbnail";
+        public const string CreateNewAlbum = "dbo.proc_CreateNewAlbum";
+        public const string CreateNewGallery = "dbo.proc_CreateNewGallery";
+        public const string GetAlbums = "dbo.proc_GetAlbums";
+        public const string CreateAccountProfile = "dbo.proc_CreateAccountProfile";
+        public const string GetAccountByAliasId = "dbo.proc_GetAccountByAliasId";
+        public const string GetAccountDetailsByProfileId = "dbo.proc_GetAccountDetailsByProfileId";
+        public const string FollowDevalaya = "dbo.proc_FollowDevalaya";
+        public const string IsFollowDevalaya = "dbo.pro_IsFollowDevalaya";
+        public const string GetAllFollowingAssociations = "dbo.proc_GetAllFollowingAssociations";
+        public const string UpdateAccountProfile = "dbo.proc_UpdateAccountProfile";
     }
 }

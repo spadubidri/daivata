@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountRepository.cs" />
+    <Compile Include="AlbumRepository.cs" />
     <Compile Include="DevalayaListingRepository.cs" />
     <Compile Include="HomeSliderRepository.cs" />
     <Compile Include="Procedures\Procedures.cs" />

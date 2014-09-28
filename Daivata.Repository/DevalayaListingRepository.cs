@@ -67,5 +67,27 @@ namespace Daivata.Repository
             Database.Database.ExecuteQuery(query);
         }
 
+        public void Follow(Guid devalayaId, Guid userId)
+        {
+            Query query = new StoredProcedure(Procedures.FollowDevalaya);
+            query["@identifier"] = devalayaId;
+            query["@profileId"] = userId;
+            Database.Database.ExecuteQuery(query);
+        }
+
+        public bool IsFollowing(Guid devalayaId, Guid userId)
+        {
+            Query query = new StoredProcedure(Procedures.IsFollowDevalaya);
+            query["@identifier"] = devalayaId;
+            query["@profileId"] = userId;
+            Follower follower = Database.Database.GetItem<Follower>(query);
+            Database.Database.ExecuteQuery(query);
+
+            if (follower.ID > 0)
+                return true;
+            else
+                return false;
+        }
+
     }
 }

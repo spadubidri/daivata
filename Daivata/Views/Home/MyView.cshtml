@@ -1,26 +1,57 @@
-﻿@{
-    ViewBag.Title = "MyView";
-}
+﻿@model Daivata.Models.UserDashboard
 
 <br /><br />
 @if (HttpContext.Current.User.Identity.IsAuthenticated)
-{ 
-<h3>Welcome <a href="~/Home/MyActiveView/">
-    @HttpContext.Current.User.Identity.Name
-    </a>
-    </h3>
+{
+    <h3 class="highlighthead">Welcome @HttpContext.Current.User.Identity.Name </h3>
 }
-You are currently not following any event/listings. Explore more on Daivata online.
 
-<br /><br /><br /><br />
-<h3>Brief on what you can do on Daivatam online!</h3>
-    <ul>
-        <li>Great place to exchange your views and knowledge on daivata</li>
-        <li>Get to know many devalayas surrounding you or around the globe</li>
-        <li>Easier way to follow your favourite cultural/festival events</li>
-        <li>Meet devotees around the globe and share experiences</li>
-        <li>Participate on online contests and win prizes!!!</li>
-        <li>Write your blogs on a particular topic and help educating society</li>
-        <li>Enjoy our traditional Music/Art collections</li>
-    </ul>
+@if (Model.ListingDetails.Count == 0)
+{
+    <p>You are currently not following any event/listings. Explore more on Daivata online.</p>
+    <br /><br /><br /><br />
+    <h3>Brief on what you can do on Daivatam online!</h3>
+        <ul>
+            <li>Great place to exchange your views and knowledge on daivata</li>
+            <li>Get to know many devalayas surrounding you or around the globe</li>
+            <li>Easier way to follow your favourite cultural/festival events</li>
+            <li>Meet devotees around the globe and share experiences</li>
+            <li>Participate on online contests and win prizes!!!</li>
+            <li>Write your blogs on a particular topic and help educating society</li>
+            <li>Enjoy our traditional Music/Art collections</li>
+        </ul>
+}
+else
+{
+    <div id="listings" class="row">
+        <div class="col-md-6">
+            <h4 class="highlighthead">Devalayas you follow - </h4>
+                <div class="row">
+                    @foreach (Daivata.Entities.DevalayaSummary summary in Model.ListingDetails)
+                    {
+                        <div class="col-xs-6 col-md-1 panel-heading" style="height:100px; width:100px">
+                            <a href="@Url.Action("Devalaya", "Details")/@summary.Identifier">
+                                <img class=" img-circle center-block img-highlight" src="@summary.ThumbNail" style="height:100px; width:100px; " />
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+        
 
+    <div class="col-md-3">
+        <h4 class="highlighthead">Updates</h4>
+        <p> to be updated...</p>
+     </div>
+    
+    <div class="col-md-3">
+        <h4 class="highlighthead">My Account</h4>
+        <a href="">Edit My Info</a> <br />
+        <a href="">Create a Blog post</a><br />
+        <a href="">Upload a Photo</a><br />
+        <a href="">Participate in Contest</a><br />
+        <a href="">Create New Devalaya Listing</a>
+    </div>
+    </div>
+    
+}

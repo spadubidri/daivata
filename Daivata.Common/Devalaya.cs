@@ -25,6 +25,8 @@ namespace Daivata.Entities
         public string CreatedBy;
         public string ThumbNail = "/Img/NoImage.jpg";
 
+        public IList<Album> Albums = new List<Album>();
+
         protected override void ReadField(Field field)
         {
             switch (field.Name)

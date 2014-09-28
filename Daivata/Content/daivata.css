@@ -14,13 +14,13 @@ h1 {
 	font-family: 'Century Gothic', Verdana; color:white;
 }
 h2 {
-	font-family: 'Century Gothic', Verdana; color:white;
+	font-family: 'Century Gothic', Verdana; color:brown;
 }
 h3 {
-	font-family: 'Century Gothic', Verdana; color:white;
+	font-family: 'Century Gothic', Verdana; color:brown;
 }
 h4 {
-	font-family: 'Century Gothic', Verdana; color:white;
+	font-family: 'Century Gothic', Verdana; color:brown;
 }
 h5 {
 	font-family: 'Century Gothic', Verdana; color:white;
@@ -31,6 +31,16 @@ h6 {
 p {
 	margin: 0px; padding: 0px;color:white;
 }
+.highlighthead
+{
+    color:white;
+}
+
+.invalidentry
+{
+    border-color : red;
+}
+
 a {
 	color:white;
 }

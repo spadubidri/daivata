@@ -127,9 +127,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\HomePage.cs" />
+    <Compile Include="Models\UserDashboard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\AuthenticationModule.cs" />
     <Compile Include="Utilities\DaivataIdentity.cs" />
+    <Compile Include="Utilities\Helper\LoggedinUser.cs" />
     <Compile Include="Utilities\Helper\TwitterIntegration.cs" />
     <Compile Include="Utilities\JsonHelper.cs" />
     <Compile Include="Utilities\SocialSignin.cs" />
@@ -241,11 +244,11 @@
     <Content Include="Views\Listings\CreateNewDevalaya.cshtml" />
     <Content Include="Views\Listings\Thankyou.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Security\ConfirmRegistration.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Img\Uploaded\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

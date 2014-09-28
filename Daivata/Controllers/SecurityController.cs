@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Daivata.Entities;
+using Daivata.Repository;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -96,16 +98,76 @@ namespace Daivata.UI
                 string email = me.email;
                 var friends = me.friends;
 
-                SocialSignin.SigninWithSocial(me.name);
+                try
+                {
+                    AccountRepository acctRepo = new AccountRepository();
+                    // first check if alias already exists 
 
-                //HttpCookie authcookie = new HttpCookie(ConfigurationManager.AppSettings["authcookie"]);
-                //authcookie.Value = "name=" + me.name;
+                    Account acct = acctRepo.SearchAccount(AliasType.Facebook, me.id);
 
-                //Response.Cookies.Add(authcookie);
+                    if (acct.AccountId == 0)
+                    {
+                        // Create a user profile 
 
-                Response.Redirect("~/Home/MyView");
+                        AccountProfile profile = new AccountProfile();
+                        profile.Email = me.email;
+                        profile.FirstName = me.name;
+                        profile.Source = "Facebook";                        
+
+                        acct = acctRepo.CreateProfile(profile, me.id);
+                        SocialSignin.SigninWithSocial(acct);
+                        Response.Redirect("~/Security/ConfirmRegistration?ph=new");
+                    }
+                    else
+                    {
+                        SocialSignin.SigninWithSocial(acct);
+                        Response.Redirect("~/Home/MyView");
+                    }
+                    
+
+                }catch (Exception ex)
+                {
+
+                }
               }
             return null;
+        }
+
+        public ActionResult ConfirmRegistration()
+        {
+            AccountRepository repository = new AccountRepository();
+            Account account = repository.GetAccountDetails(LoggedinUser.GetLoggedinUserProfileId());
+
+            return View(account);
+        }
+
+        [HttpPost]
+        public ActionResult UpdateUser(FormCollection data)
+        {
+
+            ActionResult result;
+            try
+            {
+                Guid userId = LoggedinUser.GetLoggedinUserProfileId();
+
+                AccountProfile profile = new AccountProfile();
+                profile.FirstName = data["firstname"];
+                profile.LastName = data["lastname"];
+                profile.Email = data["email"];
+                profile.ContactNumber = data["contact"];
+
+                AccountRepository repository = new AccountRepository();
+
+                repository.UpdateProfile(profile, userId);
+                
+                result = new JsonResult() { Data = JsonHelper.GetStatusForm(true, "success") };
+            }
+            catch (Exception ex)
+            {
+                result = new JsonResult() { Data = JsonHelper.GetStatusForm(false, "failure") };
+            }
+            return result;
+
         }
 
         public ActionResult SignOut()

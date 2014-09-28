@@ -72,7 +72,7 @@ namespace Daivata.UI
 
                 // check if there is thumbnail image
 
-                createRequest.ThumbNail = "/img/NoImage.jpg";
+                createRequest.ThumbNail = "http://daivata.blob.core.windows.net/gallery/NoImage.jpg";
 
                 DevalayaListingRepository repository = new DevalayaListingRepository();
                 Devalaya newDevalaya = repository.CreateNew(createRequest);
@@ -137,6 +137,25 @@ namespace Daivata.UI
             catch (Exception ex)
             {
                 result = new JsonResult() { Data = JsonHelper.GetStatusForm(false, "failure") };    
+            }
+
+            return result;
+        }
+
+
+        public ActionResult Follow(FormCollection data)
+        {
+            ActionResult result;
+            try
+            {
+                DevalayaListingRepository repository = new DevalayaListingRepository();
+                Guid devalayaId = Guid.Parse(data["devalayaId"]);
+                repository.Follow(devalayaId, LoggedinUser.GetLoggedinUserProfileId());
+                result = new JsonResult() { Data = JsonHelper.GetStatusForm(true, "success") };
+            }
+            catch (Exception ex)
+            {
+                result = new JsonResult() { Data = JsonHelper.GetStatusForm(false, "failure") };
             }
 
             return result;
