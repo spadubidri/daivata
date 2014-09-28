@@ -192,6 +192,9 @@
                                    </div>
                                    <br />
                                    <a href="#" onclick="javascript: createPhotoGallery('frmAlbum')" id="uploadLink" style="color:brown;font-weight:700;">Upload</a>
+                                   <div id="pleaseWaitModel" style="display: none; padding-left:10px;color:brown;">
+                                       <span id="pleaseWaitTextSignIn" style="padding-left: 3px;">Please wait..</span>
+                                   </div>
                                </div>
                            }
                            else
@@ -210,7 +213,8 @@
                                    <form id="frmuploadvideo">
                                        <input type="text" class="form-control" name="videodescription" id="videodescription" placeholder="Description" required style="width:80%;"> <br />
                                        <input type="text" class="form-control" name="videolink" id="videolink" placeholder="http://www.youtube.com/embed/Uf0cSWZLVDw" required style="width:80%;" onchange="javascript:showVideo()">
-                                       <a href="#" onclick="javascript: LinkaVideo('frmuploadvideo')" style="color:brown;font-weight:700;">Add</a> <br /> <br />
+                                       <a href="#" onclick="javascript: LinkaVideo('frmuploadvideo')" style="color:brown;font-weight:700;">Add</a> 
+                                       <br /> <br />
                                        <iframe width="560" height="315" id="iframevideo"></iframe>
                                        <input type="hidden" value="@Model.Identifier" id="associationId" name="associationId" />
                                    </form>
@@ -219,7 +223,7 @@
                                {
                                    <h5 style="color:brown">Please signin to add video links</h5>
                                }
-                           </div>
+                                   </div>
                        </div>
                    </div>
 
@@ -299,6 +303,7 @@
 
                        function LinkaVideo(formID) {
                            debugger;
+                           setPleaseWaitModalText("Please wait..", 'Save')
                            var submiturl = "@Url.Action("LinkAVideo", "Details")";
                            var _oData = {
                                type: "POST",
@@ -318,6 +323,7 @@
 
                        function processSuccessfulAlbum(data) {
                            // refresh gallery
+                           clearPleaseWaitModalText("Save")
                            if (data.Status) {
                                // refresh
                                window.location.reload();
@@ -326,6 +332,7 @@
 
                        function createPhotoGallery(formID) {
                            debugger;
+                           setPleaseWaitModalText("Creating album..", 'Save')
                            var submiturl = "@Url.Action("CreateAlbum", "Details")";
                            var _oData = {
                                type: "POST",
@@ -344,7 +351,7 @@
                        function uploadPhotoGallery(data) {
 
                            var formdata = new FormData();
-
+                           setPleaseWaitModalText("Uploading photos, Please wait..", 'Save')
                            var files = $("#uploadPhoto").get(0).files;
 
                            // Add the uploaded image content to the form data collection
@@ -423,11 +430,13 @@
 
                        function setPleaseWaitModalText(data, id) {
                            $("#pleaseWaitModel" + id).text(data);
+                           $("#pleaseWaitModel").addClass("activeStepInfo");
                        }
 
 
                        function clearPleaseWaitModalText(id) {
                            $("#pleaseWaitModel" + id).text("");
+                           $("#pleaseWaitModel").addClass("hideStepInfo");
                        }
 
 
