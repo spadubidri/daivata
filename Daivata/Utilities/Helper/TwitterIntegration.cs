@@ -45,7 +45,7 @@ namespace Daivata.UI
 
         }
 
-        public string GetUserData(string oauthtoken, string oauthverifier)
+        public TwitterUser GetUserData(string oauthtoken, string oauthverifier)
         {
 
             var requestToken = new OAuthRequestToken { Token = oauthtoken };
@@ -58,7 +58,8 @@ namespace Daivata.UI
             service.AuthenticateWith(accessToken.Token, accessToken.TokenSecret);
             
             TwitterUser user = service.VerifyCredentials(new VerifyCredentialsOptions());
-            return user.Name;
+            return user;
+            
         }
     }
 }

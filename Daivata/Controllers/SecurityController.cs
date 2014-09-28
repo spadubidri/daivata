@@ -6,6 +6,7 @@ using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TweetSharp;
 
 namespace Daivata.UI
 {
@@ -39,10 +40,44 @@ namespace Daivata.UI
         {
 
             TwitterIntegration helper = new TwitterIntegration();
-            string loggedinUser = helper.GetUserData(oauth_token, oauth_verifier);
-            SocialSignin.SigninWithSocial(loggedinUser);
-            Response.Redirect("~/Home/MyView");
+            TwitterUser tLoggedinUser = helper.GetUserData(oauth_token, oauth_verifier);
+            
+            try
+            {
+                AccountRepository acctRepo = new AccountRepository();
+                // first check if alias already exists 
+
+                Account acct = acctRepo.SearchAccount(AliasType.Twitter, tLoggedinUser.Id.ToString());
+
+                if (acct.AccountId == 0)
+                {
+                    // Create a user profile 
+
+                    AccountProfile profile = new AccountProfile();
+                    profile.Email = ""; // twitter doesnt provide email ID
+                    profile.FirstName = tLoggedinUser.Name;
+                    profile.Source = "Twitter";
+
+                    acct = acctRepo.CreateProfile(profile, tLoggedinUser.Id.ToString());
+                    SocialSignin.SigninWithSocial(acct);
+                    Response.Redirect("~/Security/ConfirmRegistration?ph=new");
+                }
+                else
+                {
+                    SocialSignin.SigninWithSocial(acct);
+                    Response.Redirect("~/Home/MyView");
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+
             return null;
+            //SocialSignin.SigninWithSocial(loggedinUser);
+            //Response.Redirect("~/Home/MyView");
+            //return null;
 
         }
 
