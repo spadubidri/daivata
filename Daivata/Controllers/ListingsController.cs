@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using System.Collections.Generic;
 using Daivata.Storage;
 using System.Configuration;
+using Daivata.Models;
 
 
 namespace Daivata.UI
@@ -18,7 +19,9 @@ namespace Daivata.UI
         //
         // GET: /Listings/
 
-        static IList<DevalayaSummary> devalayaSummary;
+        static IList <KeyValuePair<int, DevalayaSummary>> devalayaSummary;
+        static int PageCount;
+
 
         public ActionResult Index()
         {
@@ -27,13 +30,54 @@ namespace Daivata.UI
 
         public ActionResult Devalayas()
         {
-            if (devalayaSummary == null) {
-                DevalayaListingRepository repository = new DevalayaListingRepository();
-                devalayaSummary = repository.GetAllDevalayas();
+            DevalayaListings listing = new DevalayaListings();
+            int pageItems = 8;
             
+
+            if (devalayaSummary == null) {
+                PageCount = 0;
+                devalayaSummary = new List<KeyValuePair<int, DevalayaSummary>>();
+                DevalayaListingRepository repository = new DevalayaListingRepository();
+                IList <DevalayaSummary> allOutput = repository.GetAllDevalayas();
+
+                
+                int itemCount = 0;
+                // put it in disctionary with page
+                foreach (DevalayaSummary summary in allOutput)
+                {
+                    devalayaSummary.Add(new KeyValuePair<int, DevalayaSummary>(PageCount, summary));
+                    itemCount++;
+                    if (itemCount % pageItems == 0) {
+                        PageCount++;
+                    }
+                        
+                }
             }
-            return View(devalayaSummary);
+            var selectedList = devalayaSummary.TakeWhile(i => i.Key == 0);
+            foreach (var summary in selectedList)
+            {
+                listing.Listings.Add(summary.Value);
+            }
+            listing.PageCount = PageCount;
+
+            return View(listing);
         }
+        
+        public ActionResult DevalayasOnScroll(int pagenumber)
+        {
+
+            DevalayaListings listing = new DevalayaListings();
+
+            //var selectedList = devalayaSummary.TakeWhile(i => i.Key == pagenumber);
+            foreach (var summary in devalayaSummary)
+            {
+                if(summary.Key == pagenumber)
+                    listing.Listings.Add(summary.Value);
+            }
+            listing.PageCount = PageCount;
+            return View(listing);
+        }
+
         public ActionResult Events()
         {
             return View();

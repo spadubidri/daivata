@@ -1,4 +1,4 @@
-﻿@model List<Daivata.Entities.DevalayaSummary>
+﻿@model Daivata.Models.DevalayaListings
 
     <br />
     <br /><br />
@@ -7,36 +7,71 @@
     <div class="feature">
     <div class="container">
         <div class="row">
-            @for (int listCnt = 0; listCnt < Model.Count(); listCnt++){
+            @for (int listCnt = 0; listCnt < Model.Listings.Count(); listCnt++)
+            {
 
                             
                     
                 <div class="col-md-3 col-sm-3">
                 <div class="feature-item">
                     <div class="panel-heading">
-                        @if (Model[listCnt].Title.Length >= 15) { 
-                        <a href="~/Details/Devalaya/@Model[listCnt].Identifier"><h4 style="color:white;">@Model[listCnt].Title.Substring(0, 15)..</h4></a>
+                        @if (Model.Listings[listCnt].Title.Length >= 15)
+                        { 
+                        <a href="~/Details/Devalaya/@Model.Listings[listCnt].Identifier"><h4 style="color:white;">@Model.Listings[listCnt].Title.Substring(0, 15)..</h4></a>
                         }
                         else
                         {
-                            <a href="~/Details/Devalaya/@Model[listCnt].Identifier"><h4 class="highlighthead">@Model[listCnt].Title</h4></a>
+                            <a href="~/Details/Devalaya/@Model.Listings[listCnt].Identifier"><h4 class="highlighthead">@Model.Listings[listCnt].Title</h4></a>
                         }
                     </div>
                     <div style="margin: 10px; height:250px; color:white;">
-                        <img class="img-circle center-block img-highlight" src="@Model[listCnt].ThumbNail" />
+                        <img class="img-circle center-block img-highlight" src="@Model.Listings[listCnt].ThumbNail" />
                         <br />
-                        @Model[listCnt].ShortDescription<br />
-                        @Model[listCnt].Location<br />
+                        @Model.Listings[listCnt].ShortDescription<br />
+                        @Model.Listings[listCnt].Location<br />
                     </div>
                 </div>
             </div>
             
             }
             </div>
+
+        <div id="content">
+
+        </div>
+
     </div>
     </div>
 
+<script>
+    var currentPage = 0;
 
+    window.onscroll = function () {
+        // try to get data here
+        if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+            debugger;
+            var pageCount = @Model.PageCount;
+            if(currentPage <= pageCount){
+                currentPage++;
+                var submiturl = "@Url.Action("DevalayasOnScroll", "Listings")?pagenumber=" + currentPage;
 
+                $.ajax({
+                    type: "GET",
+                    url: submiturl,
+                    data: null,
+                    success: reloaditems,
+                    error: function (error) {
+                        alert(error);
+                    }
+                });
+            }
+        }
+    }
 
+    function reloaditems(data) {
+        if (data != "") {
+            content.innerHTML = content.innerHTML + data;
+        }
+    }
 
+</script>

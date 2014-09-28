@@ -127,6 +127,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DevalayaListings.cs" />
     <Compile Include="Models\HomePage.cs" />
     <Compile Include="Models\UserDashboard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -246,6 +247,7 @@
     <Content Include="Views\Listings\Thankyou.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Security\ConfirmRegistration.cshtml" />
+    <Content Include="Views\Listings\DevalayasOnScroll.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
