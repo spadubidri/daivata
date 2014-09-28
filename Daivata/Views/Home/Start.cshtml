@@ -1,80 +1,81 @@
 ﻿@model Daivata.Models.HomePage
+<div class="container">
+    <div class="bannercontainer">
+        <div class="banner">
+            <ul>
 
-<div class="bannercontainer">
-    <div class="banner">
-        <ul>
+                @for (int sliderCnt = 0; sliderCnt < Model.sliders.Count(); sliderCnt++)
+                {
+                    <li data-slotamount="7" data-transition="slidehorizontal">
+                        <img src="~/@Model.sliders[sliderCnt].Image.ToString().Replace("~/","")" />
 
-            @for (int sliderCnt = 0; sliderCnt < Model.sliders.Count(); sliderCnt++)
-            {
-                <li data-slotamount="7" data-transition="slidehorizontal">
-                    <img src="~/@Model.sliders[sliderCnt].Image.ToString().Replace("~/","")" />
-
-                    <div class="caption lfl" data-easing="easeInQuad" data-start="1200"
-                         data-speed="600" data-y="100" data-x="20">
-                        <h2 class="highlighthead">@Model.sliders[sliderCnt].MainCaption</h2>
-                    </div>
-                    <div class="caption lfr" data-start="1800" data-speed="300" data-y="240"
-                         data-x="20">
-                        <p>
-                            @Model.sliders[sliderCnt].ShortDescription
-                        </p>
-                    </div>
-                </li>
-            }
-        </ul>
-    </div>
-</div>
-
-@*<div id="listings" class="row" style="padding-top:20px;">
-    <div class="col-md-12">
-        <div class="row">
-            @foreach (Daivata.Entities.DevalayaSummary summary in Model.latestListings)
-            {
-                <div class="col-xs-6 col-md-1 panel-heading" style="height:100px; width:100px">
-                    <a href="@Url.Action("Devalaya", "Details")/@summary.Identifier">
-                        <img class=" img-circle center-block img-highlight" src="@summary.ThumbNail" style="height:100px; width:100px; " />
-                    </a>
-                </div>
-            }
+                        <div class="caption lfl" data-easing="easeInQuad" data-start="1200"
+                             data-speed="600" data-y="100" data-x="20">
+                            <h2 class="highlighthead">@Model.sliders[sliderCnt].MainCaption</h2>
+                        </div>
+                        <div class="caption lfr" data-start="1800" data-speed="300" data-y="240"
+                             data-x="20">
+                            <p>
+                                @Model.sliders[sliderCnt].ShortDescription
+                            </p>
+                        </div>
+                    </li>
+                }
+            </ul>
         </div>
     </div>
-</div>*@
-<div class="feature">
-    <div class="container">
-        <div id="listings" class="row" style="padding-top:20px;height:200px;padding-bottom:30px;">
-            <div class="col-md-3">
-                <div class="feature-item" style="height:300px;">
-                    <h5 class="highlighthead">[Latest updates]</h5>
+
+    @*<div id="listings" class="row" style="padding-top:20px;">
+            <div class="col-md-12">
+                <div class="row">
+                    @foreach (Daivata.Entities.DevalayaSummary summary in Model.latestListings)
+                    {
+                        <div class="col-xs-6 col-md-1 panel-heading" style="height:100px; width:100px">
+                            <a href="@Url.Action("Devalaya", "Details")/@summary.Identifier">
+                                <img class=" img-circle center-block img-highlight" src="@summary.ThumbNail" style="height:100px; width:100px; " />
+                            </a>
+                        </div>
+                    }
                 </div>
+            </div>
+        </div>*@
+    <div class="feature">
+        <div class="container">
+            <div id="listings" class="row" style="padding-top:20px;height:200px;padding-bottom:30px;">
+                <div class="col-md-3">
+                    <div class="feature-item" style="height:300px;">
+                        <h5 class="highlighthead">[Latest updates]</h5>
+                    </div>
                 </div>
 
-            <div class="col-md-3">
-                <div class="feature-item highlighthead" style="height:300px;">
-                    <h5 class="highlighthead">[Today's Subhashitha]</h5>
-                    सुखार्थी त्यजते विद्यं विध्यार्थी त्यजते सुखम् | <br />
-                    सुखर्थीन: कुतॊ विद्या कुतॊ विध्यार्थीन: सुखम् || <br /><br />
+                <div class="col-md-3">
+                    <div class="feature-item highlighthead" style="height:300px;">
+                        <h5 class="highlighthead">[Today's Subhashitha]</h5>
+                        सुखार्थी त्यजते विद्यं विध्यार्थी त्यजते सुखम् | <br />
+                        सुखर्थीन: कुतॊ विद्या कुतॊ विध्यार्थीन: सुखम् || <br /><br />
 
-                    Sukhaarthi tyajate vidyam vidhyaarthi tyajate sukham | <br />
-                    sukhartheenaha kuto vidyaa kuto vidhyaartheena sukham || <br /><br />
+                        Sukhaarthi tyajate vidyam vidhyaarthi tyajate sukham | <br />
+                        sukhartheenaha kuto vidyaa kuto vidhyaartheena sukham || <br /><br />
 
-                    Luxury people leave knowledge, But a student leaves Luxury <br />
-                    No knowledge for one who seeks Luxury, No luxury for student  <br />
-                </div>
-                </div>
-
-            <div class="col-md-3">
-                <div class="feature-item" style="height:300px;">
-                    <h5 class="highlighthead">[Today's Panchanga]</h5>
+                        Luxury people leave knowledge, But a student leaves Luxury <br />
+                        No knowledge for one who seeks Luxury, No luxury for student  <br />
+                    </div>
                 </div>
 
+                <div class="col-md-3">
+                    <div class="feature-item" style="height:300px;">
+                        <h5 class="highlighthead">[Today's Panchanga]</h5>
+                    </div>
+
                 </div>
-            <div class="col-md-3" >
-                <div class="feature-item" style="height:300px;">
-                    <h5 class="highlighthead">[Connect]</h5>
-                    <iframe src="//www.facebook.com/plugins/facepile.php?app_id=629340333850453&amp;href=https%3A%2F%2Fwww.facebook.com%2FFacebookDevelopers&amp;action&amp;width&amp;height&amp;max_rows=1&amp;colorscheme=light&amp;size=medium&amp;show_count=true&amp;appId=629340333850453" frameborder="0" style="border:none; overflow:hidden; width:100%" allowtransparency="true"></iframe>
+                <div class="col-md-3">
+                    <div class="feature-item" style="height:300px;">
+                        <h5 class="highlighthead">[Connect]</h5>
+                        <iframe src="//www.facebook.com/plugins/facepile.php?app_id=629340333850453&amp;href=https%3A%2F%2Fwww.facebook.com%2FFacebookDevelopers&amp;action&amp;width&amp;height&amp;max_rows=1&amp;colorscheme=light&amp;size=medium&amp;show_count=true&amp;appId=629340333850453" frameborder="0" style="border:none; overflow:hidden; width:100%" allowtransparency="true"></iframe>
+                    </div>
                 </div>
-                </div>
+            </div>
         </div>
-        </div>
+    </div>
 </div>
         <br /><br /><br /><br /><br /><br />
