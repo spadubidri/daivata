@@ -112,7 +112,7 @@ namespace Daivata.UI
                 createRequest.FAQ = data["faq"];
                 createRequest.TravelDetails = data["traveldirection"];
                 createRequest.Status = "N";
-                createRequest.CreatedBy = Guid.NewGuid().ToString(); // to do update logged in user GUID
+                createRequest.CreatedBy = LoggedinUser.GetLoggedinUserProfileId().ToString(); // to do update logged in user GUID
 
                 // check if there is thumbnail image
 
