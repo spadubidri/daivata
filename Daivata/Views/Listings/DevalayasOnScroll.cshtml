@@ -22,11 +22,13 @@
                     }
                 </div>
                 <div style="margin: 10px; height:220px; color:white;">
-                    <img class="img-circle center-block img-highlight" src="@Model.Listings[listCnt].ThumbNail" height="120px;" width="120px;" />
-                    <br />
-                    @Model.Listings[listCnt].ShortDescription<br />
-                    @Model.Listings[listCnt].Location<br />
-                </div>
+                    <a href="~/Details/Devalaya/@Model.Listings[listCnt].Identifier">
+                        <img class="img-circle center-block img-highlight" src="@Model.Listings[listCnt].ThumbNail" height="120px;" width="120px;" />
+                        </a>
+                        <br />
+                        @Model.Listings[listCnt].ShortDescription<br />
+                        @Model.Listings[listCnt].Location<br />
+</div>
             </div>
         </div>
 

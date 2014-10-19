@@ -18,8 +18,8 @@
             </div>
             <div class="modal-body">
                 <form id="frmfilter">
-                    <input type="text" placeholder="Devalaya Title" id="title" name="title" style="width:80%"/> <br /><br />
-                    <select class="form-control" id="state" name="duration" style="width:50%">
+                    <input type="text" class="well" placeholder="Devalaya Title" id="title" name="title" style="width:80%"/> <br /><br />
+                    <select class="well" id="state" name="duration" style="width:50%">
                         <option value=""> -- Duration -- </option>
                         <option value="0">Added - This week</option>
                         <option value="1">Today</option>
@@ -28,14 +28,14 @@
                         <option value="4">All</option>
                     </select>
                     <br />
-                    <select class="form-control" id="state" name="state" style="width:50%">
+                    <select class="well" id="state" name="state" style="width:50%">
                         <option value=""> -- State -- </option>
                         <option value="KA">Karnataka</option>
                         <option value="TN">Tamil Nadu</option>
                         <option value="KL">Kerala</option>
                         <option value="MH">Maharashtra</option>
                     </select><br />
-                    <input type="text" placeholder="Location" style="width:70%" id="location" name="location"/>
+                    <input type="text" class="well" placeholder="Location" style="width:70%" id="location" name="location"/>
                 </form>
             </div>
             
@@ -70,11 +70,12 @@
                         }
                     </div>
                     <div style="margin: 10px; height:220px; color:white;">
-                        <img class="img-circle center-block img-highlight" height="120px;" width="120px;" src="@Model.Listings[listCnt].ThumbNail" />
-                        <br />
-                        @Model.Listings[listCnt].ShortDescription<br />
-                        @Model.Listings[listCnt].Location<br />
-                    </div>
+                        <a href="~/Details/Devalaya/@Model.Listings[listCnt].Identifier">
+                            <img class="img-circle center-block img-highlight" height="120px;" width="120px;" src="@Model.Listings[listCnt].ThumbNail" /></a>
+                            <br />
+                            @Model.Listings[listCnt].ShortDescription<br />
+                            @Model.Listings[listCnt].Location<br />
+</div>
                 </div>
             </div>
             

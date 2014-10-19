@@ -12,7 +12,7 @@ namespace Daivata.Entities
         public Guid Identifier;
         public string Title;
         public string ShortDescription;
-        public string Location = "Karnataka";
+        public string Location = "";
         public string ThumbNail = "/Img/NoImage.jpg";
 
         protected override void ReadField(Field field)
@@ -29,9 +29,9 @@ namespace Daivata.Entities
                     this.ShortDescription = field.As<string>();
                     break;
                 // TO DO
-                //case Fields.Location:
-                //    this.Location = field.As<string>();
-                //    break;
+                case Fields.Location:
+                    this.Location = field.As<string>();
+                    break;
                 case Fields.ThumbNailImage:
                     this.ThumbNail = field.As<string>();
                     if (string.IsNullOrEmpty(this.ThumbNail)) this.ThumbNail = "/Img/NoImage.jpg";

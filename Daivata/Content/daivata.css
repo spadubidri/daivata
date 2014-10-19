@@ -6,7 +6,7 @@ body {
         font-family: 'Century Gothic';
     font-size:13px;
     margin:10px;
-    color:gray;
+    color:white;
     /*background:url("Img/background.jpg")*/
     background-color:rgb(42, 18, 19);
 }
@@ -44,24 +44,28 @@ p {
 a {
 	color:white;
 }
-a:hover {
-    	
-}
+
 a:hover {
 	outline: 0px;
+    color:yellow;
+    text-decoration:none;
 }
 a:active {
 	outline: 0px;
+    color:yellow;
 }
-a:focus {
-	outline: 0px;
-}
+
 hr {
 	border-top-color: rgb(221, 221, 221); border-top-width: 1px; border-top-style: solid;
 }
 :focus {
 	
 }
+
+.well {
+    background-color : #b07c4b;
+}
+
 .blue {
 	color: rgb(30, 210, 242);
 }
