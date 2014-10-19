@@ -98,15 +98,15 @@
                        </div>
                    </div>
                    <div class="row setup-content step activeStepInfo" id="step-1" >
-                       <div class="col-xs-12" style="min-height:400px;">
-                           <div class="col-md-12 well text-left">
+                       <div class="col-xs-12" >
+                           <div class="col-md-12 well text-left" style="min-height:400px;">
                                @Html.Raw(Model.Details)
                            </div>
                        </div>
                    </div>
                    <div class="row setup-content step hiddenStepInfo" id="step-2">
-                       <div class="col-xs-12" style="min-height:400px;">
-                           <div class="col-md-12 well text-left">
+                       <div class="col-xs-12" >
+                           <div class="col-md-12 well text-left" style="min-height:400px;">
                                @Html.Raw(Model.TimingDetails)
                            </div>
                        </div>
@@ -132,8 +132,8 @@ else
 
                    </div>
                    <div class="row setup-content step hiddenStepInfo" id="step-4">
-                       <div class="col-xs-12" style="min-height:400px;">
-                           <div class="col-md-12 well text-center">
+                       <div class="col-xs-12" >
+                           <div class="col-md-12 well text-center" style="min-height:400px;">
                                @Html.Raw(Model.Contact)
                            </div>
                        </div>
@@ -147,67 +147,67 @@ else
                    </div>
                    <div class="row setup-content step hiddenStepInfo" id="step-6">
                        <div class="col-xs-12">
-                           <div class="col-md-12 well text-left">
+                           <div class="col-md-12 well text-left" style="min-height:400px;">
 
                            </div>
                        </div>
                    </div>
                    <div class="row setup-content step hiddenStepInfo" id="step-7">
                        <div class="col-xs-12">
-                           <div class="col-md-12 well text-left">
+                           <div class="col-md-12 well text-left" style="min-height:400px;">
                                coming soon..
                            </div>
                        </div>
                    </div>
                    <div class="row setup-content step hiddenStepInfo" id="step-8">
-                       <div class="col-xs-12" style="min-height:400px;">
-                           <div class="col-md-12 well text-left">
+                       <div class="col-xs-12" >
+                           <div class="col-md-12 well text-left" style="min-height:400px;">
                                @Html.Raw(Model.References)
                            </div>
                        </div>
                    </div>
                    <div class="row setup-content step hiddenStepInfo" id="step-9">
-                       <div class="col-xs-12" style="min-height:400px;">
-                           <div class="col-md-12 well text-left">
+                       <div class="col-xs-12" >
+                           <div class="col-md-12 well text-left" style="min-height:400px;">
                                @Html.Raw(Model.TravelDetails)
                            </div>
                        </div>
                    </div>
                    <div class="row setup-content step hiddenStepInfo" id="step-10">
-                       <div class="col-xs-12" style="min-height:400px;">
-                           <div class="col-md-12 well text-left">
+                       <div class="col-xs-12" >
+                           <div class="col-md-12 well text-left" style="min-height:400px;">
 
                            </div>
                        </div>
                    </div>
                    <div class="row setup-content step hiddenStepInfo" id="step-11">
-                       <div class="col-xs-12" style="min-height:500px;">
-                           <div class=" col-md-12 well text-left">
-                           @if (HttpContext.Current.User.Identity.IsAuthenticated)
-                           {
-                               <div class="row">
-                                   <div>
-                                       Upload a new photo: <br />
-                                       <form id="frmAlbum">
-                                           <input type="text" class="form-control" name="albumtitle" id="albumtitle" placeholder="Album Title" required style="width:80%;"> <br />
-                                           <input type="file" id="uploadPhoto" multiple class="form-control" style="width:80%;" onchange="javascript:updateThumnailpreview()" />
-                                       </form>
-                                   </div>
-                                   <div id="thumnailplaceholder" class="row" style="margin-right:0px;">
+                       <div class="col-xs-12" >
+                           <div class=" col-md-12 well text-left" style="min-height:500px;">
+                               @if (HttpContext.Current.User.Identity.IsAuthenticated)
+                               {
+                                   <div class="row">
+                                       <div>
+                                           Upload a new photo: <br />
+                                           <form id="frmAlbum">
+                                               <input type="text" class="form-control" name="albumtitle" id="albumtitle" placeholder="Album Title" required style="width:80%;"> <br />
+                                               <input type="file" id="uploadPhoto" multiple class="form-control" style="width:80%;" onchange="javascript:updateThumnailpreview()" />
+                                           </form>
+                                       </div>
+                                       <div id="thumnailplaceholder" class="row" style="margin-right:0px;">
 
+                                       </div>
+                                       <br />
+                                       <a href="#" onclick="javascript: createPhotoGallery('frmAlbum')" id="uploadLink" style="color:brown;font-weight:700;">Upload</a>
+                                       <div id="pleaseWaitModel" style="display: none; padding-left:10px;color:brown;">
+                                           <span id="pleaseWaitTextSignIn" style="padding-left: 3px;">Please wait..</span>
+                                       </div>
                                    </div>
-                                   <br />
-                                   <a href="#" onclick="javascript: createPhotoGallery('frmAlbum')" id="uploadLink" style="color:brown;font-weight:700;">Upload</a>
-                                   <div id="pleaseWaitModel" style="display: none; padding-left:10px;color:brown;">
-                                       <span id="pleaseWaitTextSignIn" style="padding-left: 3px;">Please wait..</span>
-                                   </div>
-                               </div>
-                           }
-                           else
-                           {
-                               <h5 style="color:brown">Please signin to create new album</h5>
-                           }
-                       </div>
+                               }
+                               else
+                               {
+                                   <h5 style="color:brown">Please signin to create new album</h5>
+                               }
+                           </div>
 
                        </div>
                    </div>
