@@ -14,6 +14,7 @@ namespace Daivata.Repository
         public const string GetDevalayaDetails = "dbo.proc_GetDevalayaDetails";
         public const string UpdateDevalayaStatus = "dbo.proc_UpdateDevalayaStatus";
         public const string GetAllDevalayas = "dbo.proc_GetAllDevalayas";
+        public const string GetFilteredDevalayas = "dbo.proc_GetFilteredDevalayas";
         public const string UpdateDevalayaThumbnail = "dbo.proc_UpdateDevalayaThumbnail";
         public const string CreateNewAlbum = "dbo.proc_CreateNewAlbum";
         public const string CreateNewGallery = "dbo.proc_CreateNewGallery";

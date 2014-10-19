@@ -34,12 +34,12 @@
                     <li>
                         <a href="#" onclick="javascript: resetActive(event, 40, 'step-5');">FAQ</a>
                     </li>
-                    <li>
+                    @*<li>
                         <a href="#" onclick="javascript: resetActive(event, 10, 'step-6');">Discuss</a>
-                    </li>
-                    <li>
+                    </li>*@
+                    @*<li>
                         <a href="#" onclick="javascript: resetActive(event, 10, 'step-7');">Events</a>
-                    </li>
+                    </li>*@
                     <li>
                         <a href="#" onclick="javascript: resetActive(event, 10, 'step-8');">References</a>
                     </li>
@@ -92,11 +92,13 @@
                     <div class="col-md-9 ">
                         <h3 style="color:brown;">@Model.Title</h3>
                         <h4 style="color:brown;">@Model.ShortDescription</h4>
+                        <h4 style="color:brown;">@Model.Location @Model.State @Model.Country</h4>
+
                         @*<span class="fa fa-star"><b>&nbsp;255 &nbsp;Follow</b></span>*@
                        </div>
                    </div>
                    <div class="row setup-content step activeStepInfo" id="step-1" >
-                       <div class="col-xs-12">
+                       <div class="col-xs-12" style="min-height:400px;">
                            <div class="col-md-12 well text-left">
 
                                @Html.Raw(Model.Details)
@@ -104,36 +106,41 @@
                        </div>
                    </div>
                    <div class="row setup-content step hiddenStepInfo" id="step-2">
-                       <div class="col-xs-12">
+                       <div class="col-xs-12" style="min-height:400px;">
                            <div class="col-md-12 well text-left">
                                @Html.Raw(Model.TimingDetails)
                            </div>
                        </div>
                    </div>
                    <div class="row setup-content step hiddenStepInfo" id="step-3">
-                       <div class="col-xs-12">
-                           @*<a href="https://www.google.co.in/maps/place/%E0%A4%89%E0%A4%A1%E0%A5%81%E0%A4%AA%E0%A5%80+%E0%A4%95%E0%A5%83%E0%A4%B7%E0%A5%8D%E0%A4%A3+%E0%A4%AE%E0%A4%82%E0%A4%A6%E0%A4%BF%E0%A4%B0/13.332222,74.746111,17z/data=!3m1!4b1!4m2!3m1!1s0x3bbcbb6d7a84309b:0xfc31a5d1f9fa2f85" target="new">View it on Google Map </a> <br />*@
+                       <div class="col-xs-12" style="min-height:400px;">
+
                            <div class="page-section">
                                <div class="row">
-                                   
-                                       @if (!String.IsNullOrEmpty(Model.MapLocation))
-                                       {
-                                           <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?q=@HttpUtility.UrlEncode(Model.MapLocation)&key=AIzaSyAXfBXLhdYDILVFnHAL2u7PzgWAURdondw"></iframe>
-                                       }
-                                   
+
+                                   @if (!String.IsNullOrEmpty(Model.MapLocation))
+                                   {
+                                       <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?q=@HttpUtility.UrlEncode(Model.MapLocation)&key=AIzaSyAXfBXLhdYDILVFnHAL2u7PzgWAURdondw"></iframe>
+                                   }
+                                   else
+                                   {
+                                       @Html.Raw("No Location details available");
+                                   }
+
                                </div>
                            </div>
                        </div>
+
                    </div>
                    <div class="row setup-content step hiddenStepInfo" id="step-4">
-                       <div class="col-xs-12">
+                       <div class="col-xs-12" style="min-height:400px;">
                            <div class="col-md-12 well text-center">
                                @Html.Raw(Model.Contact)
                            </div>
                        </div>
                    </div>
                    <div class="row setup-content step hiddenStepInfo" id="step-5">
-                       <div class="col-xs-12">
+                       <div class="col-xs-12" style="min-height:400px;">
                            <div class="col-md-12 well text-left">
                                @Html.Raw(Model.FAQ)
                            </div>
@@ -149,28 +156,28 @@
                    <div class="row setup-content step hiddenStepInfo" id="step-7">
                        <div class="col-xs-12">
                            <div class="col-md-12 well text-left">
-
+                               coming soon..
                            </div>
                        </div>
                    </div>
                    <div class="row setup-content step hiddenStepInfo" id="step-8">
-                       <div class="col-xs-12">
+                       <div class="col-xs-12" style="min-height:400px;">
                            <div class="col-md-12 well text-left">
-
+                               @Html.Raw(Model.References)
                            </div>
                        </div>
                    </div>
                    <div class="row setup-content step hiddenStepInfo" id="step-9">
-                       <div class="col-xs-12">
+                       <div class="col-xs-12" style="min-height:400px;">
                            <div class="col-md-12 well text-left">
-
+                               @Html.Raw(Model.TravelDetails)
                            </div>
                        </div>
                    </div>
                    <div class="row setup-content step hiddenStepInfo" id="step-10">
-                       <div class="col-xs-12">
+                       <div class="col-xs-12" style="min-height:400px;">
                            <div class="col-md-12 well text-left">
-                               @Html.Raw(Model.TravelDetails)
+
                            </div>
                        </div>
                    </div>

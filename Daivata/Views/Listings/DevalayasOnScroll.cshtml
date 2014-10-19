@@ -12,17 +12,17 @@
         <div class="col-md-3 col-sm-3">
             <div class="feature-item">
                 <div class="panel-heading">
-                    @if (Model.Listings[listCnt].Title.Length >= 15)
-                    {
-                        <a href="~/Details/Devalaya/@Model.Listings[listCnt].Identifier"><h4 style="color:white;">@Model.Listings[listCnt].Title.Substring(0, 15)..</h4></a>
+                    @if (Model.Listings[listCnt].Title.Length >= 20)
+                    { 
+                             <a href="~/Details/Devalaya/@Model.Listings[listCnt].Identifier"><h5 style="color:white;">@Model.Listings[listCnt].Title.Substring(0, 20)..</h5></a>
                     }
                     else
                     {
-                        <a href="~/Details/Devalaya/@Model.Listings[listCnt].Identifier"><h4 class="highlighthead">@Model.Listings[listCnt].Title</h4></a>
+                        <a href="~/Details/Devalaya/@Model.Listings[listCnt].Identifier"><h5 class="highlighthead">@Model.Listings[listCnt].Title</h5></a>
                     }
                 </div>
-                <div style="margin: 10px; height:250px; color:white;">
-                    <img class="img-circle center-block img-highlight" src="@Model.Listings[listCnt].ThumbNail" />
+                <div style="margin: 10px; height:220px; color:white;">
+                    <img class="img-circle center-block img-highlight" src="@Model.Listings[listCnt].ThumbNail" height="120px;" width="120px;" />
                     <br />
                     @Model.Listings[listCnt].ShortDescription<br />
                     @Model.Listings[listCnt].Location<br />

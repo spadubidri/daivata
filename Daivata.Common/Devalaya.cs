@@ -24,6 +24,10 @@ namespace Daivata.Entities
         public DateTime Created;
         public string CreatedBy;
         public string ThumbNail = "/Img/NoImage.jpg";
+        public string Country = "";
+        public string State = "";
+        public string References = "";
+
 
         public IList<Album> Albums = new List<Album>();
 
@@ -44,9 +48,9 @@ namespace Daivata.Entities
                     this.ShortDescription = field.As<string>();
                     break;
                 // TO DO
-                //case Fields.Location:
-                //    this.Location = field.As<string>();
-                //    break;
+                case Fields.Location:
+                    this.Location = field.As<string>();
+                    break;
                 case Fields.Details:
                     this.Details = field.As<string>();
                     break;
@@ -70,6 +74,18 @@ namespace Daivata.Entities
                     break;
                 case Fields.Status:
                     this.Status = field.As<string>();
+                    break;
+                case Fields.State:
+                    this.State = field.As<string>();
+                    break;
+                case Fields.Country:
+                    this.Country = field.As<string>();
+                    break;
+                case Fields.References:
+                    this.References = field.As<string>();
+                    break;
+                case Fields.TravelDetails:
+                    this.TravelDetails = field.As<string>();
                     break;
                 case Fields.ThumbNailImage:
                     this.ThumbNail = field.As<string>();

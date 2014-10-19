@@ -11,5 +11,7 @@ namespace Daivata.Models
         public IList<DevalayaSummary> Listings = new List<DevalayaSummary>();
 
         public int PageCount;
+
+        public string Filter;
     }
 }

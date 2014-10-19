@@ -16,6 +16,8 @@ namespace Daivata.Database
         public const string Title = "Title";
         public const string ShortDescription = "ShortDescription";
         public const string Location = "Location";
+        public const string Country = "Country";
+        public const string State = "State";
         public const string Details = "Details";
         public const string MapLocation = "MapLocation";
         public const string Contact = "Contact";
@@ -25,7 +27,8 @@ namespace Daivata.Database
         public const string Status = "Status";
         public const string TimingDetails = "TimingDetails";
         public const string ThumbNailImage = "ThumbNailImage";
-
+        public const string References = "Reference";
+        public const string TravelDetails = "TravelDetails";
         public const string AlbumTitle = "Title";
         public const string GalleryType = "Type";
         public const string GalleryFileName = "FileName";

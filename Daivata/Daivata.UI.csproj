@@ -133,6 +133,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\AuthenticationModule.cs" />
     <Compile Include="Utilities\DaivataIdentity.cs" />
+    <Compile Include="Utilities\Helper\ImageThumbNail.cs" />
     <Compile Include="Utilities\Helper\LoggedinUser.cs" />
     <Compile Include="Utilities\Helper\TwitterIntegration.cs" />
     <Compile Include="Utilities\JsonHelper.cs" />

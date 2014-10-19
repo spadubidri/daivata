@@ -16,6 +16,8 @@ namespace Daivata.Repository
             query["@Title"] = createRequest.Title;
             query["@ShortDescription"] = createRequest.ShortDescription;
             query["@Location"] = createRequest.Location;
+            query["@Country"] = createRequest.Country;
+            query["@State"] = createRequest.State;
             query["@Details"] = createRequest.Details;
             query["@MapLocation"] = createRequest.MapLocation;
             query["@Contact"] = createRequest.Contact;
@@ -25,6 +27,7 @@ namespace Daivata.Repository
             query["@Status"] = createRequest.Status;
             query["@TimingDetails"] = createRequest.TimingDetails;
             query["@ThumbNailImage"] = createRequest.ThumbNail;
+            query["@References"] = createRequest.References;
             Devalaya newDevalaya = Database.Database.GetItem<Devalaya>(query);
             Database.Database.ExecuteQuery(query);
 
@@ -54,6 +57,19 @@ namespace Daivata.Repository
         public IList<DevalayaSummary> GetAllDevalayas()
         {
             Query query = new StoredProcedure(Procedures.GetAllDevalayas);
+            IList<DevalayaSummary> devalayaDetails = Database.Database.GetItems<DevalayaSummary>(query);
+            Database.Database.ExecuteQuery(query);
+            return devalayaDetails;
+        }
+
+        public IList<DevalayaSummary> GetFilteredDevalayas(FilterRequest request)
+        {
+            Query query = new StoredProcedure(Procedures.GetFilteredDevalayas);
+            query["@title"] = request.Title;
+            query["@duration"] = request.Duration;
+            query["@state"] = request.State;
+            query["@location"] = request.Location;
+
             IList<DevalayaSummary> devalayaDetails = Database.Database.GetItems<DevalayaSummary>(query);
             Database.Database.ExecuteQuery(query);
             return devalayaDetails;
