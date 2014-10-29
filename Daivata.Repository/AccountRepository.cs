@@ -24,7 +24,7 @@ namespace Daivata.Repository
             query["@aliasName"] = aliasName;
 
             //Account albumDetails = Database.Database.GetItem<Account>(query);
-            Database.Database.ExecuteQuery(query);
+            //Database.Database.ExecuteQuery(query);
             Account acct = new Account();
             IList<AccountAlias> aliases = new List<AccountAlias>();
             AccountProfile profile = new AccountProfile();
@@ -61,7 +61,7 @@ namespace Daivata.Repository
             Query query = new StoredProcedure(Procedures.GetAccountDetailsByProfileId);
             query["@profileId"] = profileId;
 
-            Database.Database.ExecuteQuery(query);
+            //Database.Database.ExecuteQuery(query);
             Account acct = new Account();
             IList<AccountAlias> aliases = new List<AccountAlias>();
             AccountProfile profile = new AccountProfile();

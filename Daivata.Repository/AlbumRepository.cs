@@ -17,7 +17,7 @@ namespace Daivata.Repository
             query["@userId"] = userId;
 
             Album albumDetails = Database.Database.GetItem<Album>(query);
-            Database.Database.ExecuteQuery(query);
+           // Database.Database.ExecuteQuery(query);
 
             return albumDetails; 
         }
@@ -42,7 +42,7 @@ namespace Daivata.Repository
 
             IList<Album> albumDetails = new List<Album>();
             IList<Gallery> galleryItems = new List<Gallery>();
-            Database.Database.ExecuteQuery(query);
+           // Database.Database.ExecuteQuery(query);
 
             Database.Database.ForEach(query, (rs, lc) =>
             {

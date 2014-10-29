@@ -20,7 +20,7 @@ namespace Daivata.Repository
             Query query = new StoredProcedure(Procedures.GetHomeSliders);
 
             sliders = Database.Database.GetItems<HomeSlider>(query);
-            Database.Database.ExecuteQuery(query);
+           // Database.Database.ExecuteQuery(query);
 
         }
 

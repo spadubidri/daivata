@@ -27,7 +27,7 @@ namespace Daivata.Entities
                     this.FirstName = field.As<string>();
                     break;
                 case Fields.LastName:
-                    this.FirstName = field.As<string>();
+                    this.LastName = field.As<string>();
                     break;
                 case Fields.Email:
                     this.Email = field.As<string>();

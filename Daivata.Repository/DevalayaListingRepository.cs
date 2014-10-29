@@ -29,7 +29,7 @@ namespace Daivata.Repository
             query["@ThumbNailImage"] = createRequest.ThumbNail;
             query["@References"] = createRequest.References;
             Devalaya newDevalaya = Database.Database.GetItem<Devalaya>(query);
-            Database.Database.ExecuteQuery(query);
+            //Database.Database.ExecuteQuery(query);
 
             return newDevalaya;
         }
@@ -39,7 +39,7 @@ namespace Daivata.Repository
             Query query = new StoredProcedure(Procedures.GetDevalayaDetails);
             query["@identifier"] = devalayaId;
             Devalaya devalayaDetails = Database.Database.GetItem<Devalaya>(query);
-            Database.Database.ExecuteQuery(query);
+            //Database.Database.ExecuteQuery(query);
 
             return devalayaDetails;
         }
@@ -58,7 +58,7 @@ namespace Daivata.Repository
         {
             Query query = new StoredProcedure(Procedures.GetAllDevalayas);
             IList<DevalayaSummary> devalayaDetails = Database.Database.GetItems<DevalayaSummary>(query);
-            Database.Database.ExecuteQuery(query);
+            //Database.Database.ExecuteQuery(query);
             return devalayaDetails;
         }
 
@@ -71,7 +71,7 @@ namespace Daivata.Repository
             query["@location"] = request.Location;
 
             IList<DevalayaSummary> devalayaDetails = Database.Database.GetItems<DevalayaSummary>(query);
-            Database.Database.ExecuteQuery(query);
+            //Database.Database.ExecuteQuery(query);
             return devalayaDetails;
         }
 
@@ -97,7 +97,7 @@ namespace Daivata.Repository
             query["@identifier"] = devalayaId;
             query["@profileId"] = userId;
             Follower follower = Database.Database.GetItem<Follower>(query);
-            Database.Database.ExecuteQuery(query);
+            //Database.Database.ExecuteQuery(query);
 
             if (follower.ID > 0)
                 return true;
