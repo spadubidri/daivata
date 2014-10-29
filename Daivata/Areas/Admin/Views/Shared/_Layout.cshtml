@@ -1,0 +1,27 @@
+﻿@{var active = ViewContext.Controller.ViewBag.Menu;}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daivatham Online</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/rs-settings.css" rel="stylesheet" />
+    <link href="~/Content/animate.min.css" rel="stylesheet" />
+    <link href="~/Content/prettyPhoto.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    @*<link href="~/Content/daivata.css" rel="stylesheet" />*@
+
+    <link href="~/Content/daivata.css" rel="stylesheet" />
+    <link href="~/Content/icon/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link rel="icon" href="~/Content/Img/logoshort.png" type="image/png" />
+    
+</head>
+<body>
+
+
+    @RenderBody()
+    @Html.Partial("Script")
+    @RenderSection("Script", false)
+
+</body>
+</html>

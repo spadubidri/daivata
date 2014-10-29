@@ -43,6 +43,7 @@
     <Compile Include="Account.cs" />
     <Compile Include="AccountAlias.cs" />
     <Compile Include="AccountProfile.cs" />
+    <Compile Include="AccountSummary.cs" />
     <Compile Include="Album.cs" />
     <Compile Include="DataObjects.cs" />
     <Compile Include="Devalaya.cs" />

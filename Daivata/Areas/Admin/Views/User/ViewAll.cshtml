@@ -1,0 +1,32 @@
+﻿@model List<Daivata.Entities.AccountSummary>
+
+@if (Model != null && Model.Count > 0)
+{
+    <div class="tab-content col-md-7">
+        <table class="table table-bordered table-condensed table-striped">
+            <thead>
+                <tr>
+                    <td class="col-md-2">Profile Id</td>
+                    <td class="col-md-2">First Name</td>
+                    <td class="col-md-2">Last Name</td>
+                    <td class="col-md-2">Email</td>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach (var rp in Model)
+                    {
+                        <tr>
+                            <td>
+                                <div>@rp.ProfileID</div>
+                            </td>
+                            <td><div>@rp.FirstName</div></td>
+                            <td><div>@rp.LastName</div></td>
+                            <td><div>@rp.Email</div></td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+}

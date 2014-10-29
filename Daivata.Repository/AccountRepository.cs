@@ -136,8 +136,6 @@ namespace Daivata.Repository
             Query query = new StoredProcedure(Procedures.GetAllFollowingAssociations);
             query["@profileId"] = profileId;
             following = Database.Database.GetItems<Follower>(query);
-            Database.Database.ExecuteQuery(query);
-
             return following;
         }
 
@@ -154,5 +152,13 @@ namespace Daivata.Repository
             Database.Database.ExecuteQuery(query);
         }
 
+        public IList<AccountSummary> GetAllAccounts()
+        {
+            IList<AccountSummary> summary = new List<AccountSummary>();
+            Query query = new StoredProcedure(Procedures.GetAccountSummary);
+            summary = Database.Database.GetItems<AccountSummary>(query);
+
+            return summary;
+        }
     }
 }

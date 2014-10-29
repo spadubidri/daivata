@@ -26,5 +26,7 @@ namespace Daivata.Repository
         public const string IsFollowDevalaya = "dbo.pro_IsFollowDevalaya";
         public const string GetAllFollowingAssociations = "dbo.proc_GetAllFollowingAssociations";
         public const string UpdateAccountProfile = "dbo.proc_UpdateAccountProfile";
+        public const string GetAccountSummary = "dbo.proc_GetAccountSummary";
+
     }
 }
