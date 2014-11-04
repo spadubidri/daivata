@@ -553,52 +553,13 @@ div.ppt {
 .product .product-content .carousel-control span {
 	font-size: 20px; margin-top: -20px;
 }
+.sidebar .sidebar-dropdown{
+		display: block;
+	}
+
 }
-@media all and (max-width:767px)
-{
-.bannercontainer .banner h5 {
-	line-height: 20px !important; font-size: 14px !important; margin-left: 20px !important;
-}
-.bannercontainer .banner h2 {
-	margin: 5px 0px 5px 20px !important; line-height: 25px !important; font-size: 20px !important;
-}
-.bannercontainer .banner p {
-	line-height: 15px !important; font-size: 11px !important; margin-top: 2px !important; margin-left: 20px !important;
-}
-.bannercontainer .banner .slide-img img {
-	display: none !important;
-}
-.service .service-item {
-	margin: 0px auto; max-width: 350px !important;
-}
-.cta .cta-content a {
-	margin: 10px 10px 10px 0px !important;
-}
-.product .product-content {
-	max-width: 400px !important;
-}
-.contact .contact-area .contact-form {
-	width: 80% !important;
-}
-}
-@media all and (max-width:991px)
-{
-.bannercontainer .banner p {
-	line-height: 20px !important; font-size: 14px !important;
-}
-.cta .cta-content {
-	padding: 10px !important; text-align: center !important;
-}
-.cta .cta-content span {
-	margin-bottom: 10px !important; margin-left: 0px !important;
-}
-.product .product-content {
-	margin: 0px auto !important;
-}
-.product .product-content .sub-item {
-	margin-bottom: 20px !important;
-}
-}
+
+
 
 .img-highlight{
     border: 2px solid rgb(212, 225, 41);
@@ -772,49 +733,9 @@ background-color:white;
   width:70px;
 }
 
-#sidebar, #sidebar a {
-    color:#ffffff;
-    background-color:transparent;
-	text-shadow:1px 0 1px #888888;
-}
-#sidebar a.logo {
-  display:block;
-  padding:3px;
-  background-color:#fff;
-  color:#777777;
-  height:40px;
-  width:40px;
-  margin:15px;
-  font-size:26px;
-  font-weight:700;
-  text-align:center;
-  text-decoration:none;
-  text-shadow:0 0 0;
-}
-#sidebar-footer {
-  position:absolute;bottom:5px;
-}
 #footer {
   margin-bottom:20px;
 }
-
-/* center and adjust the sidebar contents on smaller devices */
-@media (max-width: 768px) {
-  #sidebar,#sidebar a.logo {
-    text-align:center;
-    margin:0 auto;
-    margin-top:30px;
-    font-size:26px;
-  }
-  #sidebar a.logo {
-    font-size:50px;
-    height:75px;
-    width:75px;
-    margin-bottom:30px;
-  }
-}
-
-
 
 
 /* bootstrap overrides */
@@ -843,3 +764,306 @@ small.text-muted {
   font-family:courier,courier-new,monospace;
 }
 
+
+.sidebar{
+	width: 230px;
+	float: left;
+	display: block;
+	background:#111;
+	color: #eee;
+	position: relative;
+}
+
+.sidebar hr{
+	border-bottom: 1px solid #333 !important;
+}
+
+.sidebar ul{
+	padding: 0px;
+	margin: 0px;
+	list-style-type: none;	
+}
+
+.sidebar ul li{
+	list-style-type: none;
+}
+
+.sidebar .sidebar-inner{
+  display: block; 
+  width:100%; 
+  margin: 0 auto; 
+  position: absolute;
+  z-index: 60;	
+  background: #111;
+}
+
+.sidebar .navi li i{
+	margin-right: 5px;
+}
+
+.sidebar .navi li span i{
+	margin: 0px;
+}
+
+.sidebar .navi > li > a{ 
+  display: block; 
+  padding: 12px 20px;
+  font-size: 15px;
+  line-height: 25px;
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 1px solid #222;
+  background-color: #111;
+}
+
+.sidebar .navi > li > a:hover, .sidebar .navi > li.open > a { 
+  border-bottom: 1px solid #222;
+  background-color: #222;
+  color: #fff;
+}
+
+.sidebar .navi li ul { 
+	display: none; 
+	background: #181818; 
+}
+
+.sidebar .navi li.open ul{
+	display: block;
+}
+
+.sidebar .navi li ul li a { 
+  display: block; 
+  background: none;
+  padding: 10px 0px;
+  padding-left: 42px;
+  text-decoration: none;
+  color: #999;
+  border-bottom: 1px solid #222;
+}
+
+.sidebar .navi li ul li.active a { 
+  background: #050505;
+  border-bottom: 1px solid #222;
+}
+.sidebar .navi li ul li.active a:hover { 
+  background: #050505;
+}
+
+.sidebar .navi li ul li a:hover {
+  background: #131313;
+  border-bottom: 1px solid #222;
+}
+
+/* Sidebar colors */
+
+.sidebar .navi > li.nlightblue > a:hover, 
+.sidebar .navi > li.open.nlightblue > a, 
+.sidebar .navi > li.current.nlightblue > a { 
+  background:#52b9e9 !important;
+  -webkit-transition:background 0.5s ease;
+  -moz-transition:background 0.5s ease;
+  -o-transition:background 0.5s ease;
+  transition:background 0.5s ease;
+}
+
+.sidebar .navi > li.nblue > a:hover, 
+.sidebar .navi > li.open.nblue > a,
+.sidebar .navi > li.current.nblue > a { 
+  background:#1171a3 !important;
+  -webkit-transition:background 0.5s ease;
+  -moz-transition:background 0.5s ease;
+  -o-transition:background 0.5s ease;
+  transition:background 0.5s ease;
+}
+
+.sidebar .navi > li.ngreen > a:hover, 
+.sidebar .navi > li.open.ngreen > a,
+.sidebar .navi > li.current.ngreen > a { 
+  background:#43c83c !important;
+  -webkit-transition:background 0.5s ease;
+  -moz-transition:background 0.5s ease;
+  -o-transition:background 0.5s ease;
+  transition:background 0.5s ease;
+}
+
+.sidebar .navi > li.norange > a:hover, 
+.sidebar .navi > li.open.norange > a,
+.sidebar .navi > li.current.norange > a { 
+  background:#f88529 !important;
+  -webkit-transition:background 0.5s ease;
+  -moz-transition:background 0.5s ease;
+  -o-transition:background 0.5s ease;
+  transition:background 0.5s ease;
+}
+
+.sidebar .navi > li.nred > a:hover, 
+.sidebar .navi > li.open.nred > a,
+.sidebar .navi > li.current.nred > a { 
+  background:#b07c4b !important;
+  -webkit-transition:background 0.5s ease;
+  -moz-transition:background 0.5s ease;
+  -o-transition:background 0.5s ease;
+  transition:background 0.5s ease;
+}
+
+.sidebar .navi > li.nviolet > a:hover, 
+.sidebar .navi > li.open.nviolet > a,
+.sidebar .navi > li.current.nviolet > a { 
+  background:#932ab6 !important;
+  -webkit-transition:background 0.5s ease;
+  -moz-transition:background 0.5s ease;
+  -o-transition:background 0.5s ease;
+  transition:background 0.5s ease;
+}
+
+/* Sidebar dropdown */
+
+.sidebar .sidebar-dropdown*{
+	text-decoration: none;
+}
+
+.sidebar .sidebar-dropdown{
+	display: none;
+}
+
+.sidebar .sidebar-dropdown a{
+	color: #ddd;  
+	background-color: #b07c4b;	
+	padding:10px;
+	text-align: center;
+	font-size: 13px;
+	line-height:19px;
+	display: block;
+	border-top: 1px solid #666;
+	border-bottom: 1px solid #333;  
+}
+
+.sidebar .sidebar-dropdown a:hover{
+	text-decoration: none;
+}
+
+.sidebar .sidebar-widget{
+	padding: 15px 5px;
+}
+
+.sidebar .ui-datepicker-next, .sidebar .ui-datepicker-prev{
+	background:#333;
+	width:20px;
+	height:20px;
+	top:6px;
+	border-radius:50px !important;
+}
+
+.sidebar .ui-state-default{
+	background: #222;
+	border: 0px;
+	text-align: center;
+	color: #ccc;
+}
+
+.sidebar .ui-state-default:hover{
+	background: #282828;
+	color: #999;
+}
+
+.sidebar .ui-state-hightlight, .sidebar .ui-state-active{
+	background: #444;
+}
+
+
+/* Main */
+
+.mainbar{
+	position: relative;
+	margin-left: 230px;
+	margin-right: 0px;
+	width: auto;
+	background:#fff;
+	
+}
+
+.mainbar .container{
+   max-width:100% !important;
+}
+
+
+
+/* Responsive */
+
+@media (max-width:767px)
+{
+.bannercontainer .banner h5 {
+	line-height: 20px !important; font-size: 14px !important; margin-left: 20px !important;
+}
+.bannercontainer .banner h2 {
+	margin: 5px 0px 5px 20px !important; line-height: 25px !important; font-size: 20px !important;
+}
+.bannercontainer .banner p {
+	line-height: 15px !important; font-size: 11px !important; margin-top: 2px !important; margin-left: 20px !important;
+}
+.bannercontainer .banner .slide-img img {
+	display: none !important;
+}
+.service .service-item {
+	margin: 0px auto; max-width: 350px !important;
+}
+.cta .cta-content a {
+	margin: 10px 10px 10px 0px !important;
+}
+.product .product-content {
+	max-width: 400px !important;
+}
+.contact .contact-area .contact-form {
+	width: 80% !important;
+}
+.sidebar{
+	float: none;
+	width: 100%;
+}
+	.sidebar .sidebar-dropdown{
+		display: block;
+	}
+	.sidebar .sidebar-inner{
+		display: none;
+		max-width:300px;
+		padding:0px 20px;
+	}
+	.sidebar .sidebar-widget{
+	}
+
+	.mainbar{
+		margin: 0px;
+		float: none;
+	}
+
+	.today-datas{	
+		text-align: center;
+	}
+	.slide-box{
+		display: none;
+	}
+}
+@media (min-width: 768px) and (max-width:991px)
+{
+.bannercontainer .banner p {
+	line-height: 20px !important; font-size: 14px !important;
+}
+.cta .cta-content {
+	padding: 10px !important; text-align: center !important;
+}
+.cta .cta-content span {
+	margin-bottom: 10px !important; margin-left: 0px !important;
+}
+.product .product-content {
+	margin: 0px auto !important;
+}
+.product .product-content .sub-item {
+	margin-bottom: 20px !important;
+}
+.sidebar{
+		width: 200px;
+	}
+.mainbar{
+	margin-left: 200px;
+}
+}

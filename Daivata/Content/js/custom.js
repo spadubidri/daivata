@@ -47,25 +47,7 @@ var api;
 	
 	
 
-/* JS for gmaps */
-    var map;
-    $(document).ready(function(){
-      map = new GMaps({
-        el: '#map',
-        lat: -12.043333,
-        lng: -77.028333,
-        zoomControl : true,
-        zoomControlOpt: {
-            style : 'SMALL',
-            position: 'TOP_LEFT'
-        },
-        panControl : false,
-        streetViewControl : false,
-        mapTypeControl: false,
-        overviewMapControl: false,
-      });
-    });
-	
+
 /* prettyPhoto Gallery */
 
 jQuery(".prettyphoto").prettyPhoto({
@@ -201,5 +183,24 @@ $('.ptable-content').waypoint(function(down) {
 
   });	
 
-				
+  $(document).ready(function () {
+      $(".sidebar-dropdown a").on('click', function (e) {
+          e.preventDefault();
+
+          if (!$(this).hasClass("dropy")) {
+              // hide any open menus and remove all other classes
+              $(".sidebar .sidebar-inner").slideUp(350);
+              $(".sidebar-dropdown a").removeClass("dropy");
+
+              // open our new menu and add the dropy class
+              $(".sidebar .sidebar-inner").slideDown(350);
+              $(this).addClass("dropy");
+          }
+
+          else if ($(this).hasClass("dropy")) {
+              $(this).removeClass("dropy");
+              $(".sidebar .sidebar-inner").slideUp(350);
+          }
+      });
+  });
 				
