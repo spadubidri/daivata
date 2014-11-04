@@ -14,15 +14,15 @@
             </thead>
             <tbody>
                 @{
-                    foreach (var rp in Model)
+                    foreach (var usr in Model)
                     {
                         <tr>
                             <td>
-                                <div>@rp.ProfileID</div>
+                                <div>@usr.ProfileID</div>
                             </td>
-                            <td><div>@rp.FirstName</div></td>
-                            <td><div>@rp.LastName</div></td>
-                            <td><div>@rp.Email</div></td>
+                            <td><div>@usr.FirstName</div></td>
+                            <td><div>@usr.LastName</div></td>
+                            <td><div>@usr.Email</div></td>
                         </tr>
                     }
                 }

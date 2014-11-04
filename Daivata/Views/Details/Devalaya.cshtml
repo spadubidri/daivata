@@ -4,7 +4,9 @@
 <br /><br />
 <br /><br />
 <!-- Main Div-->
-
+<script>
+    document.title = document.title + ' - @Model.Title';
+</script>
 <div class="wrapper" style="min-height:550px;">
     <div class="box">
         <div class="row">
@@ -87,6 +89,16 @@
                                 }
                                 </div>
                             }
+                            <div class="fb-share-button" data-href="http://daivatham.in/Details/Devalaya/@Model.Identifier"></div>
+                            <div id="fb-root"></div>
+                            <script>
+                            (function (d, s, id) {
+                                var js, fjs = d.getElementsByTagName(s)[0];
+                                if (d.getElementById(id)) return;
+                                js = d.createElement(s); js.id = id;
+                                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=629340333850453&version=v2.0";
+                                fjs.parentNode.insertBefore(js, fjs);
+                            }(document, 'script', 'facebook-jssdk'));</script>
                         </form>
                     </div>
                     <div class="col-md-9 ">
