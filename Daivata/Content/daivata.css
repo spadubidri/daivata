@@ -986,7 +986,10 @@ small.text-muted {
    max-width:100% !important;
 }
 
-
+.videoview {
+    height : 250px;
+    width : 50%;
+}
 
 /* Responsive */
 
@@ -1042,6 +1045,9 @@ small.text-muted {
 	.slide-box{
 		display: none;
 	}
+    .videoview{
+        width : 100%;
+    }
 }
 @media (min-width: 768px) and (max-width:991px)
 {

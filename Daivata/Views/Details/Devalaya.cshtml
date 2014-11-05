@@ -11,17 +11,17 @@
             <ul class="navi">
                 <!-- Use the class nred, ngreen, nblue, nlightblue, nviolet or norange to add background color. You need to use this in <li> tag. -->
 
-                <li class="nred"><a href="#" onclick="javascript: resetActive(event, 0, 'step-1');"><i class="fa fa-desktop"></i> Details</a></li>
-                <li class="nred"><a href="#" onclick="javascript: resetActive(event, 0, 'step-2');"><i class="fa fa-list-alt"></i> Seva Details</a></li>
-                <li class="nred"><a href="#" onclick="javascript: resetActive(event, 0, 'step-13');"><i class="fa fa-photo"></i> Gallery</a></li>
-                <li class="nred"><a href="#" onclick="javascript: resetActive(event, 0, 'step-3');"><i class="fa fa-map-marker"></i> Location</a></li>
-                <li class="nred"><a href="#" onclick="javascript: resetActive(event, 0, 'step-4');"><i class="fa fa-list"></i> Contact</a></li>
-                <li class="nred"><a href="#" onclick="javascript: resetActive(event, 0, 'step-5');"><i class="fa fa-list"></i> FAQ</a></li>
-                <li class="nred"><a href="#" onclick="javascript: resetActive(event, 0, 'step-6');"><i class="fa fa-group"></i> Discuss</a></li>
-                <li class="nred"><a href="#" onclick="javascript: resetActive(event, 0, 'step-7');"><i class="fa fa-calendar"></i> Events</a></li>
-                <li class="nred"><a href="#" onclick="javascript: resetActive(event, 0, 'step-8');"><i class="fa fa-info"></i> References</a></li>
-                <li class="nred"><a href="#" onclick="javascript: resetActive(event, 0, 'step-9');"><i class="fa fa-road"></i> Travel Guide</a></li>
-                <li class="nred"><a href="#" onclick="javascript: resetActive(event, 0, 'step-10');"><i class="fa fa-repeat"></i> Near By</a></li>
+                <li class="nred"><a href="#" onclick="javascript: resetActive(event, 0, 'step-1');"><img src="~/Content/Img/logoshort.png" /> Details</a></li>
+                <li class="nred"><a href="#" onclick="javascript: resetActive(event, 0, 'step-2');"><img src="~/Content/Img/logoshort.png" /> Seva Details</a></li>
+                <li class="nred"><a href="#" onclick="javascript: resetActive(event, 0, 'step-13');"><img src="~/Content/Img/logoshort.png" /> Gallery</a></li>
+                <li class="nred"><a href="#" onclick="javascript: resetActive(event, 0, 'step-3');"><img src="~/Content/Img/logoshort.png" /> Location</a></li>
+                <li class="nred"><a href="#" onclick="javascript: resetActive(event, 0, 'step-4');"><img src="~/Content/Img/logoshort.png" /> Contact</a></li>
+                <li class="nred"><a href="#" onclick="javascript: resetActive(event, 0, 'step-5');"><img src="~/Content/Img/logoshort.png" /> FAQ</a></li>
+                @*<li class="nred"><a href="#" onclick="javascript: resetActive(event, 0, 'step-6');"><img src="~/Content/Img/logoshort.png" /> Discuss</a></li>*@
+                <li class="nred"><a href="#" onclick="javascript: resetActive(event, 0, 'step-7');"><img src="~/Content/Img/logoshort.png" /> Events</a></li>
+                <li class="nred"><a href="#" onclick="javascript: resetActive(event, 0, 'step-8');"><img src="~/Content/Img/logoshort.png" /> References</a></li>
+                <li class="nred"><a href="#" onclick="javascript: resetActive(event, 0, 'step-9');"><img src="~/Content/Img/logoshort.png" /> Travel Guide</a></li>
+                <li class="nred"><a href="#" onclick="javascript: resetActive(event, 0, 'step-10');"><img src="~/Content/Img/logoshort.png" /> Near By</a></li>
                 @if (HttpContext.Current.User.Identity.IsAuthenticated)
                 {
                     <li class="nred">
@@ -37,7 +37,7 @@
 
     <div class="mainbar">
             <div class="row">
-                <div class="col-md-3" style="padding-top:55px;">
+                <div class="col-md-3" style="padding-top:15px;">
                     <img src="@Model.ThumbNail" class="img-circle center-block img-highlight" />
 
                     <form id="frmSubmit" style="text-align:center; padding-top:5px;padding-bottom:5px;">
@@ -79,7 +79,7 @@
                     <h3 style="color: brown; padding-left: 15px;"> @Model.Title</h3>
                     <h4 style="color: brown; padding-left: 15px;"> @Model.ShortDescription</h4>
                     <h4 style="color: brown; padding-left: 15px;">@Model.Location @Model.State @Model.Country</h4>
-                    <div class="fb-share-button" data-href="http://daivatham.in/Details/Devalaya/@Model.Identifier"></div>
+                    <h4 style="color: brown; padding-left: 15px;"><div class="fb-share-button" data-href="http://daivatham.in/Details/Devalaya/@Model.Identifier"></div></h4>
                 </div>
             </div>
 
@@ -105,7 +105,7 @@
 
                             @if (!String.IsNullOrEmpty(Model.MapLocation))
                         {
-                                <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?q=@HttpUtility.UrlEncode(Model.MapLocation)&key=AIzaSyAXfBXLhdYDILVFnHAL2u7PzgWAURdondw&zoom=13"></iframe>
+                                <iframe width="90%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?q=@HttpUtility.UrlEncode(Model.MapLocation)&key=AIzaSyAXfBXLhdYDILVFnHAL2u7PzgWAURdondw&zoom=13"></iframe>
                         }
                         else
                         {
@@ -229,7 +229,7 @@
                             <div class="row" style="margin-right:0px;">
                                 <h5>@alb.AlbumTitle</h5>
                                 <h6>@alb.CreatedByName</h6>
-                                <iframe width="50%" height="250px" src="@alb.GalleryItems[0].FileName"></iframe>
+                                <iframe class="videoview" src="@alb.GalleryItems[0].FileName"></iframe>
                             </div>
                         }
                         else

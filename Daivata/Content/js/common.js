@@ -21,6 +21,9 @@
 
     hideSteps();
     showCurrentStepInfo(step);
+    if ($(".sidebar-dropdown a").hasClass("dropy")) {
+        $(".sidebar .sidebar-inner").slideUp(350);
+    }
 }
 
 function hideSteps() {
